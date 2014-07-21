@@ -197,7 +197,7 @@
 </table>
 </div>
 <p>OpenPACE implements Extended Access Control (EAC) version 2 as specified in
-<a class="reference external" href="https://www.bsi.bund.de/ContentBSI/Publikationen/TechnischeRichtlinien/tr03110/index_htm.html">BSI TR-03110</a> <a class="footnote-reference" href="#id1" id="id2">[1]</a>. OpenPACE comprises support for the following protocols:</p>
+<a class="reference external" href="https://www.bsi.bund.de/EN/Publications/TechnicalGuidelines/TR03110/BSITR03110.html">BSI TR-03110</a> <a class="footnote-reference" href="#id1" id="id2">[1]</a>. OpenPACE comprises support for the following protocols:</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -240,7 +240,7 @@ for:</p>
 actually want to exchange data with a smart card, you need to take care of
 formatting and sending the data in the form of APDUs. If this is what
 you&#8217;re trying to do, you should have a look at the <strong class="command">npa-tool</strong> of
-the <a class="reference external" href="http://vsmartcard.sourceforge.net/npa/README.html">nPA Smart Card Library</a> <a class="footnote-reference" href="#id4" id="id5">[2]</a>.</p>
+the <a class="reference external" href="https://frankmorgner.github.io/vsmartcard/">nPA Smart Card Library</a> <a class="footnote-reference" href="#id4" id="id5">[2]</a>.</p>
 </div>
 <div class="section" id="download-openpace">
 <h2>Download OpenPACE<a class="headerlink" href="#download-openpace" title="Permalink to this headline">¶</a></h2>
@@ -269,7 +269,7 @@ make install
 </div>
 <p>OpenPACE depends on the <a class="reference external" href="http://openssl.org">OpenSSL</a> <a class="footnote-reference" href="#id6" id="id7">[3]</a> library. Since <abbr title="Password Authenticated Connection Establishment">PACE</abbr> uses CMAC and the
 Brainpool curves, the currently unreleased version 1.0.2 of OpenSSL is required.</p>
-<p>Furthermore, additional object identifiers from <a class="reference external" href="https://www.bsi.bund.de/ContentBSI/Publikationen/TechnischeRichtlinien/tr03110/index_htm.html">BSI TR-03110</a> <a class="footnote-reference" href="#id1" id="id3">[1]</a> are required.
+<p>Furthermore, additional object identifiers from <a class="reference external" href="https://www.bsi.bund.de/EN/Publications/TechnicalGuidelines/TR03110/BSITR03110.html">BSI TR-03110</a> <a class="footnote-reference" href="#id1" id="id3">[1]</a> are required.
 You have two options to get them to work:</p>
 <ol class="arabic simple">
 <li>Let OpenPACE load the object identifiers at runtime</li>
@@ -388,7 +388,7 @@ and then translated into Javascript. Use the following command:</p>
 </table>
 <p>On successfull compilation, the compiled bitcode files can be found in
 <tt class="file docutils literal"><span class="pre">openpace-0.9_bc</span></tt>. You can run our testsuite
-completely in Javascript or <a class="reference external" href="../../_static/eactest.html">in your browser</a>:</p>
+completely in Javascript or <a class="reference external" href="_static/eactest.html">in your browser</a>:</p>
 <div class="highlight-sh"><div class="highlight"><pre>nodejs openpace-0.9_bc/eactest.js
 <span class="c"># WARNING: Our tests are very time consuming and might stall your browser for a moment or two...</span>
 firefox openpace-0.9_bc/eactest.html
@@ -469,13 +469,13 @@ more than welcome! You can contact us through our <a class="reference external" 
 <table class="docutils footnote" frame="void" id="id1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> <a class="reference external" href="https://www.bsi.bund.de/ContentBSI/Publikationen/TechnischeRichtlinien/tr03110/index_htm.html">https://www.bsi.bund.de/ContentBSI/Publikationen/TechnischeRichtlinien/tr03110/index_htm.html</a></td></tr>
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> <a class="reference external" href="https://www.bsi.bund.de/EN/Publications/TechnicalGuidelines/TR03110/BSITR03110.html">https://www.bsi.bund.de/EN/Publications/TechnicalGuidelines/TR03110/BSITR03110.html</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id4" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[2]</a></td><td><a class="reference external" href="http://vsmartcard.sourceforge.net/npa/README.html">http://vsmartcard.sourceforge.net/npa/README.html</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id5">[2]</a></td><td><a class="reference external" href="https://frankmorgner.github.io/vsmartcard/">https://frankmorgner.github.io/vsmartcard/</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id6" rules="none">
