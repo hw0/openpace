@@ -113,6 +113,11 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#how-to-use-openpace">How to use OpenPACE</a><ul>
+<li><a class="reference internal" href="#using-libeac">Using <tt class="docutils literal"><span class="pre">libeac</span></tt></a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-cvc-create">Using <tt class="docutils literal"><span class="pre">cvc-create</span></tt></a></li>
+<li><a class="reference internal" href="#using-cvc-print">Using <tt class="docutils literal"><span class="pre">cvc-print</span></tt></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#where-to-get-help">Where to get help</a></li>
@@ -404,6 +409,8 @@ twice before using the Javascript version of OpenPACE.</p>
 </div>
 <div class="section" id="how-to-use-openpace">
 <h2>How to use OpenPACE<a class="headerlink" href="#how-to-use-openpace" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-libeac">
+<h3>Using <tt class="docutils literal"><span class="pre">libeac</span></tt><a class="headerlink" href="#using-libeac" title="Permalink to this headline">¶</a></h3>
 <p>OpenPACE is a native C library on top of OpenSSL. If you want to know how to
 use OpenPACE from C/C++, have a look at our <a class="reference external" href="_static/doxygen/modules.html">API documentation</a>.</p>
 <p>OpenPACE uses <a class="reference external" href="http://swig.org">SWIG</a> <a class="footnote-reference" href="#id8" id="id9">[4]</a> to offer bindings in some more programming languages. The
@@ -418,7 +425,7 @@ do this is:</p>
 </div>
 <p>If OpenPACE is compiled for Javascript, it results in a standalone Javascript
 file that can be used without special requirements.</p>
-<p>More details and a number of examples are covered here:</p>
+<p>More details and a number of examples for using the library are covered here:</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage of OpenPACE</a><ul>
@@ -432,6 +439,159 @@ file that can be used without special requirements.</p>
 </ul>
 </li>
 </ul>
+</div>
+</div>
+<div class="section" id="using-cvc-create">
+<h3>Using <tt class="docutils literal"><span class="pre">cvc-create</span></tt><a class="headerlink" href="#using-cvc-create" title="Permalink to this headline">¶</a></h3>
+<p class="versionadded">
+<span class="versionmodified">New in version 0.9: </span><cite>cvc-create</cite> is a command line tool for creating a <abbr title="Extended Access Control">EAC</abbr> PKI of
+Authentication Terminals, Signature Terminals or Inspection Systems.</p>
+<div class="highlight-text"><div class="highlight"><pre>cvc-create 0.9
+
+Create a card verifiable certificate
+
+Usage: cvc-create [OPTIONS]...
+
+  -h, --help                Print help and exit
+  -V, --version             Print version and exit
+      --role=ENUM           The terminal&#39;s role  (possible values=&quot;cvca&quot;,
+                              &quot;dv_domestic&quot;, &quot;dv_foreign&quot;, &quot;terminal&quot;)
+      --type=ENUM           Type of the terminal (Authentication Terminal,
+                              Inspection System or Signature Terminal)
+                              (possible values=&quot;at&quot;, &quot;is&quot;, &quot;st&quot;)
+      --chr=CCH...HSSSSS    Certificate holder reference (2 characters ISO
+                              3166-1 ALPHA-2 country code, 0-9 characters
+                              ISO/IEC 8859-1 holder mnemonic, 5 characters
+                              ISO/IEC 8859-1 numeric or alphanumeric sequence
+                              number)
+      --issued=YYMMDD       Date the certificate was issued  (default=`today&#39;)
+      --expires=YYMMDD      Date until which the certicate is valid
+      --sign-with=FILENAME  Private key for signing the new certificate
+      --sign-as=FILENAME    CV certificate of the entity signing the new
+                              certificate  (default=`self signed&#39;)
+      --key=FILENAME        Private key of the Terminal  (default=`derived from
+                              signer&#39;)
+      --scheme=ENUM         Signature scheme that the new terminal will use
+                              (possible values=&quot;ECDSA_SHA_1&quot;,
+                              &quot;ECDSA_SHA_224&quot;, &quot;ECDSA_SHA_256&quot;,
+                              &quot;ECDSA_SHA_384&quot;, &quot;ECDSA_SHA_512&quot;,
+                              &quot;RSA_v1_5_SHA_1&quot;, &quot;RSA_v1_5_SHA_256&quot;,
+                              &quot;RSA_v1_5_SHA_512&quot;, &quot;RSA_PSS_SHA_1&quot;,
+                              &quot;RSA_PSS_SHA_256&quot;, &quot;RSA_PSS_SHA_512&quot;)
+
+Options for an Authentication Terminal (AT):
+      --cert-desc=FILENAME  Certificate description (as *.txt, *.html or *.pdf)
+      --write-dg17          Allow writing DG 17 (Normal Place of Residence)
+                              (default=off)
+      --write-dg18          Allow writing DG 18 (Community ID)  (default=off)
+      --write-dg19          Allow writing DG 19 (Residence Permit I)
+                              (default=off)
+      --write-dg20          Allow writing DG 20 (Residence Permit II)
+                              (default=off)
+      --write-dg21          Allow writing DG 21 (Optional Data)  (default=off)
+      --at-rfu32            Allow RFU R/W Access bit 32  (default=off)
+      --at-rfu31            Allow RFU R/W Access bit 31  (default=off)
+      --at-rfu30            Allow RFU R/W Access bit 30  (default=off)
+      --at-rfu29            Allow RFU R/W Access bit 29  (default=off)
+      --read-dg1            Allow reading DG 1   (Document Type)  (default=off)
+      --read-dg2            Allow reading DG 2   (Issuing State)  (default=off)
+      --read-dg3            Allow reading DG 3   (Date of Expiry)
+                              (default=off)
+      --read-dg4            Allow reading DG 4   (Given Names)  (default=off)
+      --read-dg5            Allow reading DG 5   (Family Names)  (default=off)
+      --read-dg6            Allow reading DG 6   (Religious/Artistic Name)
+                              (default=off)
+      --read-dg7            Allow reading DG 7   (Academic Title)
+                              (default=off)
+      --read-dg8            Allow reading DG 8   (Date of Birth)  (default=off)
+      --read-dg9            Allow reading DG 9   (Place of Birth)
+                              (default=off)
+      --read-dg10           Allow reading DG 10  (Nationality)  (default=off)
+      --read-dg11           Allow reading DG 11  (Sex)  (default=off)
+      --read-dg12           Allow reading DG 12  (Optional Data)  (default=off)
+      --read-dg13           Allow reading DG 13  (default=off)
+      --read-dg14           Allow reading DG 14  (default=off)
+      --read-dg15           Allow reading DG 15  (default=off)
+      --read-dg16           Allow reading DG 16  (default=off)
+      --read-dg17           Allow reading DG 17  (Normal Place of Residence)
+                              (default=off)
+      --read-dg18           Allow reading DG 18  (Community ID)  (default=off)
+      --read-dg19           Allow reading DG 19  (Residence Permit I)
+                              (default=off)
+      --read-dg20           Allow reading DG 20  (Residence Permit II)
+                              (default=off)
+      --read-dg21           Allow reading DG 21  (Optional Data)  (default=off)
+      --install-qual-cert   Allow installing qualified certificate
+                              (default=off)
+      --install-cert        Allow installing certificate  (default=off)
+      --pin-management      Allow PIN management  (default=off)
+      --can-allowed         CAN allowed  (default=off)
+      --privileged          Privileged terminal  (default=off)
+      --rid                 Allow restricted identification  (default=off)
+      --verify-community    Allow community ID verification  (default=off)
+      --verify-age          Allow age verification  (default=off)
+
+Options for a Signature Terminal (ST):
+      --st-rfu5             Allow RFU bit 5  (default=off)
+      --st-rfu4             Allow RFU bit 4  (default=off)
+      --st-rfu3             Allow RFU bit 3  (default=off)
+      --st-rfu2             Allow RFU bit 2  (default=off)
+      --gen-qualified-sig   Generate qualified electronic signature
+                              (default=off)
+      --gen-sig             Generate electronic signature  (default=off)
+
+Options for an Inspection System (IS):
+      --read-eid            Read access to eID application (Deprecated)
+                              (default=off)
+      --is-rfu4             Allow RFU bit 4  (default=off)
+      --is-rfu3             Allow RFU bit 3  (default=off)
+      --is-rfu2             Allow RFU bit 2  (default=off)
+      --read-iris           Read access to ePassport application: DG 4 (Iris)
+                              (default=off)
+      --read-finger         Read access to ePassport application: DG 3
+                              (Fingerprint)  (default=off)
+
+Report bugs to https://github.com/frankmorgner/openpace/issues
+
+Written by Frank Morgner &lt;morgner@informatik.hu-berlin.de&gt;
+</pre></div>
+</div>
+<p>Below you see an example of how to create a certificate chain of CVCA, DVCA and a Terminal:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="c"># Create CVCA&#39;s private key</span>
+openssl ecparam -out ZZATCVCA00001.pem -name prime192v1 -genkey
+openssl pkcs8 -topk8 -nocrypt -in ZZATCVCA00001.pem -outform DER -out ZZATCVCA00001.pkcs8
+<span class="c"># Create self signed CVCA certificate</span>
+cvc-create --role<span class="o">=</span>cvca --type<span class="o">=</span>at --chr<span class="o">=</span>ZZATCVCA00001 --expires<span class="o">=</span><span class="sb">`</span>date --date<span class="o">=</span><span class="s2">&quot;next year&quot;</span> <span class="s2">&quot;+%^y%^m%^d&quot;</span><span class="sb">`</span> --sign-with<span class="o">=</span>ZZATCVCA00001.pkcs8 --scheme<span class="o">=</span>ECDSA_SHA_256 --rid
+
+<span class="c"># Create DVCA certificate signed by CVCA and generate its private key</span>
+cvc-create --role<span class="o">=</span>dv_domestic --chr<span class="o">=</span>ZZATDVCA00001 --expires<span class="o">=</span><span class="sb">`</span>date --date<span class="o">=</span><span class="s2">&quot;next month&quot;</span> <span class="s2">&quot;+%^y%^m%^d&quot;</span><span class="sb">`</span> --sign-with<span class="o">=</span>ZZATCVCA00001.pkcs8 --sign-as<span class="o">=</span>ZZATCVCA00001.cvcert --scheme<span class="o">=</span>ECDSA_SHA_256 --rid
+
+<span class="c"># Create TERM certificate signed by DVCA and generate its private key</span>
+cvc-create --role<span class="o">=</span>terminal --chr<span class="o">=</span>ZZATTERM00001 --expires<span class="o">=</span><span class="sb">`</span>date --date<span class="o">=</span><span class="s2">&quot;next week&quot;</span> <span class="s2">&quot;+%^y%^m%^d&quot;</span><span class="sb">`</span> --sign-with<span class="o">=</span>ZZATDVCA00001.pkcs8 --sign-as<span class="o">=</span>ZZATDVCA00001.cvcert --scheme<span class="o">=</span>ECDSA_SHA_256 --rid
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-cvc-print">
+<h3>Using <tt class="docutils literal"><span class="pre">cvc-print</span></tt><a class="headerlink" href="#using-cvc-print" title="Permalink to this headline">¶</a></h3>
+<p class="versionadded">
+<span class="versionmodified">New in version 0.8: </span><cite>cvc-print</cite> is a command line tool for printing card verifiable certificates.</p>
+<div class="highlight-text"><div class="highlight"><pre>cvc-print Prints card verifiable certificate and its description
+
+Usage: cvc-print [Options]
+
+Options:
+  -c,--cvc          file with card Verifiable certificate
+  -d,--description  file with certificate description
+  -h,--help         show this help message and exit
+     --version      print version information and exit
+</pre></div>
+</div>
+<p>Below you see of how to print the certificates created in the example above:</p>
+<div class="highlight-sh"><div class="highlight"><pre>cvc-print --cvc ZZATCVCA00001.cvcert
+cvc-print --cvc ZZATDVCA00001.cvcert
+cvc-print --cvc ZZATTERM00001.cvcert
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="where-to-get-help">
