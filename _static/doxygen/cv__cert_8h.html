@@ -237,6 +237,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a6f758242008190302811e2249ce4125d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cv__cert_8h.html#a6f758242008190302811e2249ce4125d">CVC_check_description</a> (const <a class="el" href="cv__cert_8h.html#aea535afcbb11c7ac5f77e4edfb825ab4">CVC_CERT</a> *cv, const unsigned char *cert_desc_in, const unsigned int cert_desc_in_len)</td></tr>
 <tr class="memdesc:a6f758242008190302811e2249ce4125d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether or not the certificate contains the correct hash of the CV certificate description.  <a href="#a6f758242008190302811e2249ce4125d">More...</a><br /></td></tr>
 <tr class="separator:a6f758242008190302811e2249ce4125d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3041c6df1ce54acce6adad2f2b20273"><td class="memItemLeft" align="right" valign="top">BUF_MEM *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cv__cert_8h.html#ac3041c6df1ce54acce6adad2f2b20273">CVC_hash_description</a> (const <a class="el" href="cv__cert_8h.html#aea535afcbb11c7ac5f77e4edfb825ab4">CVC_CERT</a> *cv, const unsigned char *cert_desc, size_t cert_desc_len)</td></tr>
+<tr class="memdesc:ac3041c6df1ce54acce6adad2f2b20273"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a hash over a certificate's description.  <a href="#ac3041c6df1ce54acce6adad2f2b20273">More...</a><br /></td></tr>
+<tr class="separator:ac3041c6df1ce54acce6adad2f2b20273"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for Card Verifiable Certificates. </p>
@@ -741,6 +744,49 @@ Frank Morgner <a href="#" onclick="location.href='mai'+'lto:'+'mor'+'gn'+'er@'+'
 
 </div>
 </div>
+<a class="anchor" id="ac3041c6df1ce54acce6adad2f2b20273"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BUF_MEM* CVC_hash_description </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="cv__cert_8h.html#aea535afcbb11c7ac5f77e4edfb825ab4">CVC_CERT</a> *&#160;</td>
+          <td class="paramname"><em>cv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char *&#160;</td>
+          <td class="paramname"><em>cert_desc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>cert_desc_len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a hash over a certificate's description. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cv</td><td>CV certificate </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cert_desc_in</td><td>ASN1 representation of the CV certificate description </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cert_desc_in_len</td><td>Length of <em>cvc_desc_in</em> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>hashed description or NULL in case of an error. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="aaba1e78aa4951f1ae9c5b777b3cff977"></a>
 <div class="memitem">
 <div class="memproto">
@@ -780,7 +826,7 @@ Frank Morgner <a href="#" onclick="location.href='mai'+'lto:'+'mor'+'gn'+'er@'+'
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 3 2014 22:16:38 for OpenPACE by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 5 2014 00:55:29 for OpenPACE by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

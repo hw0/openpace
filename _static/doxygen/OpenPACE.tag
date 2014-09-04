@@ -361,6 +361,13 @@
       <anchor>a6f758242008190302811e2249ce4125d</anchor>
       <arglist>(const CVC_CERT *cv, const unsigned char *cert_desc_in, const unsigned int cert_desc_in_len)</arglist>
     </member>
+    <member kind="function">
+      <type>BUF_MEM *</type>
+      <name>CVC_hash_description</name>
+      <anchorfile>cv__cert_8h.html</anchorfile>
+      <anchor>ac3041c6df1ce54acce6adad2f2b20273</anchor>
+      <arglist>(const CVC_CERT *cv, const unsigned char *cert_desc, size_t cert_desc_len)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>eac.h</name>
