@@ -1,123 +1,88 @@
 .. highlight:: sh
 
-.. _bindings:
+.. |PACE| replace:: :abbr:`PACE (Password Authenticated Connection Establishment)`
+.. |TA| replace:: :abbr:`TA (Terminal Authenticatation)`
+.. |CA| replace:: :abbr:`CA (Chip Authentication)`
+.. |EAC| replace:: :abbr:`EAC (Extended Access Control)`
+.. |CVCA| replace:: :abbr:`CSCA (Country Verifying Certificate Authority)`
+.. |CSCA| replace:: :abbr:`CSCA (Country Signing Certificate Authority)`
 
 
-#################
+*******************************************************************************
 Usage of OpenPACE
-#################
+*******************************************************************************
 
+===============================================================================
+Using ``libeac``
+===============================================================================
 
-***********************
-Using OpenPACE in C/C++
-***********************
+OpenPACE is a native C library on top of OpenSSL. If you want to know how to
+use OpenPACE from C/C++, have a look at our `API documentation
+<_static/doxygen/modules.html>`_.
 
-.. seealso::
+OpenPACE uses SWIG_ to offer bindings in some more programming languages. The
+bindings are easily portable to lots of different languages. Currently, native
+language bindings need to be explicitly turned on with ``./configure
+--enable-...``
 
-    See the `OpenPACE API documentation <_static/doxygen/modules.html>`_
-    for the native C/C++ interface
+If you have chosen to install OpenPACE in a non-standard location you have to
+set up the :envvar:`LD_LIBRARY_PATH` environment variable correctly. One way to
+do this is::
 
-Here we have a small example in C:
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/libeac
 
-.. literalinclude:: ../src/example.c
-    :language: c
+If OpenPACE is compiled for Javascript, it results in a standalone Javascript
+file that can be used without special requirements.
 
-.. seealso::
-    Have a look at the `nPA Smart Card Library`_ for a more complex project
-    that uses the C Interface from OpenPACE.
-
-
-************************
-Using OpenPACE in Python
-************************
-
-Python bindings must be configured with :option:`--enable-python`. They depend
-on SWIG and Python.
-
-In case of a non-standard installation of OpenPACE you might -- in addition to
-:envvar:`LD_LIBRARY_PATH` -- also need to setup the :envvar:`PYTHONPATH`
-environment variable.
-
-Here is a sample script that shows how OpenPACE is accessed from Python:
-
-.. literalinclude:: ../bindings/python/example.py
-    :language: python
-
-.. seealso::
-    Have a look at the `Emulator for the German Identity Card`_ for a more
-    complex project that uses the Python Interface from OpenPACE.
-
-Unfortunately, OpenPACE's Python bindings are currently poorly documented:
+More details and a number of examples for using the library are covered here:
 
 .. toctree::
+    :maxdepth: 2
 
-    python_api.txt
+    programming
+
+===============================================================================
+Using ``cvc-create``
+===============================================================================
+
+.. versionadded:: 0.9
+    `cvc-create` is a command line tool for creating a |EAC| PKI of
+    Authentication Terminals, Signature Terminals or Inspection Systems.
+
+.. program-output:: cvc-create --help
+
+Below you see an example of how to create a certificate chain of CVCA, DVCA and a Terminal::
+
+    # Create CVCA's private key
+    openssl ecparam -out ZZATCVCA00001.pem -name prime192v1 -genkey
+    openssl pkcs8 -topk8 -nocrypt -in ZZATCVCA00001.pem -outform DER -out ZZATCVCA00001.pkcs8
+    # Create self signed CVCA certificate
+    cvc-create --role=cvca --type=at --chr=ZZATCVCA00001 --expires=`date --date="next year" "+%^y%^m%^d"` --sign-with=ZZATCVCA00001.pkcs8 --scheme=ECDSA_SHA_256 --rid
+
+    # Create DVCA certificate signed by CVCA and generate its private key
+    cvc-create --role=dv_domestic --chr=ZZATDVCA00001 --expires=`date --date="next month" "+%^y%^m%^d"` --sign-with=ZZATCVCA00001.pkcs8 --sign-as=ZZATCVCA00001.cvcert --scheme=ECDSA_SHA_256 --rid
+
+    # Create plain text description
+    echo "whatever" > ZZATTERM00001.txt
+    # Create TERM certificate signed by DVCA along with the description and generate its private key
+    cvc-create --role=terminal --chr=ZZATTERM00001 --expires=`date --date="next week" "+%^y%^m%^d"` --sign-with=ZZATDVCA00001.pkcs8 --sign-as=ZZATDVCA00001.cvcert --scheme=ECDSA_SHA_256 --rid --cert-desc=ZZATTERM00001.txt --issuer-name=CVCA --subject-name=TERM
+
+===============================================================================
+Using ``cvc-print``
+===============================================================================
 
 .. versionadded:: 0.8
-    The SWIG bindings from `pyPACE`_ have been integrated into OpenPACE.
+    `cvc-print` is a command line tool for printing card verifiable certificates.
 
+.. program-output:: cvc-print --help
 
-**********************
-Using OpenPACE in Ruby
-**********************
+Below you see of how to print the certificates created in the example above::
 
-Ruby bindings must be configured with :option:`--enable-ruby`. They depend on
-SWIG and Ruby.
+    cvc-print --cvc ZZATCVCA00001.cvcert
+    cvc-print --cvc ZZATDVCA00001.cvcert
+    cvc-print --cvc ZZATTERM00001.cvcert --description ZZATTERM00001.desc
 
-Here is a sample script that shows how OpenPACE is accessed from Ruby:
-
-.. literalinclude:: ../bindings/ruby/example.rb
-    :language: ruby
-
-.. versionadded:: 0.9
-    Added Ruby bindings.
-
-
-********************
-Using OpenPACE in Go
-********************
-
-Go bindings must be configured with :option:`--enable-go`. They depend on SWIG
-and ``gccgo``.
-
-Here is a sample program that shows how OpenPACE is accessed from Go:
-
-.. literalinclude:: ../bindings/go/example.go
-    :language: go
-
-.. versionadded:: 0.9
-    Added Go bindings.
-
-
-**********************
-Using OpenPACE in Java
-**********************
-
-Ruby bindings must be configured with :option:`--enable-java`. They depend on
-SWIG, a java compiler and the JNI developement headers. You may set the
-:envvar:`JAVAC` environment variable to your preferred Java compiler.
-
-Here is a sample program that shows how OpenPACE is accessed from Java:
-
-.. literalinclude:: ../bindings/java/Example.java
-    :language: java
-
-
-****************************
-Using OpenPACE in Javascript
-****************************
-
-Technically the process for getting OpenPACE into Javascript is similar to
-cross compiling. It is covered in :ref:`javascript_api`
-
-
-**********
-References
-**********
 
 .. target-notes::
 
 .. _`SWIG`: http://swig.org
-.. _`pyPACE`: http://pypace.sourceforge.net
-.. _`nPA Smart Card Library`: https://frankmorgner.github.io/vsmartcard/npa/README.html
-.. _`Emulator for the German Identity Card`: https://frankmorgner.github.io/vsmartcard/virtualsmartcard/README.html

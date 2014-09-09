@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Download OpenPACE &mdash; OpenPACE 0.9 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="OpenPACE 0.9 documentation" href="index.html" />
+    <link rel="next" title="Usage of OpenPACE" href="usage.html" />
+    <link rel="prev" title="Welcome to OpenPACE’s documentation!" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/frankmorgner/openpace"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-default ">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          OpenPACE</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.9</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Download OpenPACE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#install-openpace">Install OpenPACE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage of OpenPACE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="protocols.html">Extended Access Control Specification</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Download OpenPACE</a></li>
+<li><a class="reference internal" href="#install-openpace">Install OpenPACE</a><ul>
+<li><a class="reference internal" href="#cross-compiling-openpace">Cross compiling OpenPACE</a><ul>
+<li><a class="reference internal" href="#compiling-for-windows">Compiling for Windows</a></li>
+<li><a class="reference internal" href="#compiling-for-android">Compiling for Android</a></li>
+<li><a class="reference internal" href="#compiling-for-javascript">Compiling for Javascript</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="index.html" title="Previous Chapter: Welcome to OpenPACE’s documentation!"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Welcome to OpenP...</span>
+    </a>
+  </li>
+  <li>
+    <a href="usage.html" title="Next Chapter: Usage of OpenPACE"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Usage of OpenPAC... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="download-openpace">
+<h1>Download OpenPACE<a class="headerlink" href="#download-openpace" title="Permalink to this headline">¶</a></h1>
+<p>You can find the latest release of OpenPACE on <a class="reference external" href="http://sourceforge.net/projects/openpace/files">Sourceforge</a>.</p>
+<p>Alternatively, you can clone our git repository:</p>
+<div class="highlight-sh"><div class="highlight"><pre>git clone https://github.com/frankmorgner/openpace.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-openpace">
+<h1>Install OpenPACE<a class="headerlink" href="#install-openpace" title="Permalink to this headline">¶</a></h1>
+<p>OpenPACE uses the GNU Build System to compile and install. If you are
+unfamiliar with it, please have a look at <tt class="file docutils literal"><span class="pre">INSTALL</span></tt>. If you can not find
+it, you are probably working bleeding edge in the repository.  Run the
+following command in <tt class="file docutils literal"><span class="pre">openpace</span></tt> to get the missing standard
+auxiliary files:</p>
+<div class="highlight-sh"><div class="highlight"><pre>autoreconf --verbose --install
+</pre></div>
+</div>
+<p>To configure (<strong class="command">configure &#8211;help</strong> lists possible options), build and
+install OpenPACE now do the following:</p>
+<div class="highlight-sh"><div class="highlight"><pre>./configure
+make
+make install
+</pre></div>
+</div>
+<p>OpenPACE depends on the <a class="reference external" href="http://openssl.org">OpenSSL</a> <a class="footnote-reference" href="#id3" id="id4">[2]</a> library. Since <abbr title="Password Authenticated Connection Establishment">PACE</abbr> uses CMAC and the
+Brainpool curves, the currently unreleased version 1.0.2 of OpenSSL is required.</p>
+<p>Furthermore, additional object identifiers from <a class="reference external" href="https://www.bsi.bund.de/EN/Publications/TechnicalGuidelines/TR03110/BSITR03110.html">BSI TR-03110</a> <a class="footnote-reference" href="#id1" id="id2">[1]</a> are required.
+You have two options to get them to work:</p>
+<ol class="arabic simple">
+<li>Let OpenPACE load the object identifiers at runtime</li>
+<li>Patch OpenSSL to include the identifiers</li>
+</ol>
+<p>The first option allows you to install an unchanged version of OpenSSL to your
+system. However, performance will be slightly worse and there are some
+limitations. For example, you won&#8217;t be able to use the new NIDs as labels in a
+switch statement and you need to make sure to call <tt class="docutils literal"><span class="pre">EAC_init()</span></tt> first.  For
+patching OpenSSL we provide <tt class="file docutils literal"><span class="pre">oids.patch</span></tt>. You can configure
+OpenPACE with <em class="xref std std-option">--enable-openssl-install</em>, which will
+automatically download, patch, build and install OpenSSL if needed.</p>
+<div class="section" id="cross-compiling-openpace">
+<h2>Cross compiling OpenPACE<a class="headerlink" href="#cross-compiling-openpace" title="Permalink to this headline">¶</a></h2>
+<p>We have added some scripts for the ease of cross compiling for Windows and
+Android. Both are tested with Debian wheezy. First create a working
+<tt class="file docutils literal"><span class="pre">Makefile</span></tt>:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">test</span> -x configure <span class="o">||</span> autoreconf --verbose --install
+./configure
+</pre></div>
+</div>
+<div class="section" id="compiling-for-windows">
+<h3>Compiling for Windows<a class="headerlink" href="#compiling-for-windows" title="Permalink to this headline">¶</a></h3>
+<p>Cross compilation for Windows can be done with:</p>
+<div class="highlight-sh"><div class="highlight"><pre>make win
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="16%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Make Variable</th>
+<th class="head">Default</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">WIN_TOOL</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">i686-w64-mingw32</span></tt></td>
+<td>cross compiler</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">WIN_TOOL_DIR</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">/usr/${WIN_TOOL}</span></tt></td>
+<td>root directory of the cross compiler containing the <tt class="file docutils literal"><span class="pre">lib</span></tt> and <tt class="file docutils literal"><span class="pre">include</span></tt> folders</td>
+</tr>
+</tbody>
+</table>
+<p>On successfull compilation, the Windows binaries can be found in
+<tt class="file docutils literal"><span class="pre">openpace-0.9_win32</span></tt>.</p>
+</div>
+<div class="section" id="compiling-for-android">
+<h3>Compiling for Android<a class="headerlink" href="#compiling-for-android" title="Permalink to this headline">¶</a></h3>
+<p>Cross compilation for Android can be done with:</p>
+<div class="highlight-sh"><div class="highlight"><pre>make android
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="49%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Make Variable</th>
+<th class="head">Default</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">ANDROID_ARCH</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">arm</span></tt></td>
+<td>target Architecture</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">ANDROID_TOOL</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">${ANDROID_ARCH}-linux-androideabi</span></tt></td>
+<td>cross compiler</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">MAKE_STANDALONE_TOOLCHAIN</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">${HOME}/.local/opt/android-ndk-r9/build/tools/make-standalone-toolchain.sh</span></tt></td>
+<td>location of the NDK script for creating the toolchain</td>
+</tr>
+</tbody>
+</table>
+<p>On successfull compilation, the Android binaries can be found in
+<tt class="file docutils literal"><span class="pre">openpace-0.9_$</span><em><span class="pre">ANDROID_ARCH</span></em></tt>.</p>
+</div>
+<div class="section" id="compiling-for-javascript">
+<span id="javascript-api"></span><h3>Compiling for Javascript<a class="headerlink" href="#compiling-for-javascript" title="Permalink to this headline">¶</a></h3>
+<p>Technically the process for getting OpenPACE into Javascript is similar to
+cross compiling. With <a class="reference external" href="https://github.com/kripken/emscripten">Emscripten</a> <a class="footnote-reference" href="#id5" id="id6">[3]</a> the library is compiled into LLVM bytecode
+and then translated into Javascript. Use the following command:</p>
+<div class="highlight-sh"><div class="highlight"><pre>make emscripten
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="24%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Make Variable</th>
+<th class="head">Default</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">EMSCRIPTEN_DIR</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">${HOME}/.local/src/emscripten</span></tt></td>
+<td>root directory of emscripten containing the <tt class="file docutils literal"><span class="pre">system/include/libc</span></tt> folder</td>
+</tr>
+</tbody>
+</table>
+<p>On successfull compilation, the compiled bitcode files can be found in
+<tt class="file docutils literal"><span class="pre">openpace-0.9_bc</span></tt>. You can run our testsuite
+completely in Javascript or <a class="reference external" href="_static/eactest.html">in your browser</a>:</p>
+<div class="highlight-sh"><div class="highlight"><pre>nodejs openpace-0.9_bc/eactest.js
+<span class="c"># WARNING: Our tests are very time consuming and might stall your browser for a moment or two...</span>
+firefox openpace-0.9_bc/eactest.html
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><a class="reference external" href="http://www.matasano.com/articles/javascript-cryptography">Javascript cryptography is considered harmful</a> <a class="footnote-reference" href="#id7" id="id8">[4]</a>. You may want to think
+twice before using the Javascript version of OpenPACE.</p>
+</div>
+<table class="docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><a class="reference external" href="https://www.bsi.bund.de/EN/Publications/TechnicalGuidelines/TR03110/BSITR03110.html">https://www.bsi.bund.de/EN/Publications/TechnicalGuidelines/TR03110/BSITR03110.html</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td><a class="reference external" href="http://openssl.org">http://openssl.org</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[3]</a></td><td><a class="reference external" href="https://github.com/kripken/emscripten">https://github.com/kripken/emscripten</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[4]</a></td><td><a class="reference external" href="http://www.matasano.com/articles/javascript-cryptography">http://www.matasano.com/articles/javascript-cryptography</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2012-2014 by Frank Morgner and Dominik Oepen.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
