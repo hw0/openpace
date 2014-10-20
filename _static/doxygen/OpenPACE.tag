@@ -139,9 +139,9 @@
     </member>
     <member kind="typedef">
       <type>struct cvc_pubkey_st</type>
-      <name>CVC_PUBKEY</name>
+      <name>CVC_PUBKEY_BODY</name>
       <anchorfile>cv__cert_8h.html</anchorfile>
-      <anchor>ab2699fe5bc95f93cc8f44375d1250153</anchor>
+      <anchor>ac4a7f8515584948330dda1c4d5707bb1</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
@@ -264,6 +264,13 @@
       <arglist>(BIO *bp, CVC_CERT **cvc)</arglist>
     </member>
     <member kind="function">
+      <type>EVP_PKEY *</type>
+      <name>CVC_pubkey2pkey</name>
+      <anchorfile>group__management.html</anchorfile>
+      <anchor>ga84dfe7c3da5df6756c92eeca501c87fe</anchor>
+      <arglist>(const CVC_CERT *cert, BN_CTX *bn_ctx, EVP_PKEY *out)</arglist>
+    </member>
+    <member kind="function">
       <type>int</type>
       <name>certificate_description_print</name>
       <anchorfile>group__printing.html</anchorfile>
@@ -297,13 +304,6 @@
       <anchorfile>group__printing.html</anchorfile>
       <anchor>ga604835f44c2197c1c9c7f8f8498e3112</anchor>
       <arglist>(const CVC_CERT *cvc)</arglist>
-    </member>
-    <member kind="function">
-      <type>EVP_PKEY *</type>
-      <name>CVC_get_pubkey</name>
-      <anchorfile>cv__cert_8h.html</anchorfile>
-      <anchor>ad6eb466669c87b9bc0cc72f7343f3dd2</anchor>
-      <arglist>(EVP_PKEY *domainParameters, const CVC_CERT *cert, BN_CTX *bn_ctx)</arglist>
     </member>
     <member kind="function">
       <type>enum cvc_terminal_role</type>
@@ -1039,6 +1039,13 @@
       <anchorfile>group__management.html</anchorfile>
       <anchor>ga19aa7bd7c16a19d41536c674283d1457</anchor>
       <arglist>(BIO *bp, CVC_CERT **cvc)</arglist>
+    </member>
+    <member kind="function">
+      <type>EVP_PKEY *</type>
+      <name>CVC_pubkey2pkey</name>
+      <anchorfile>group__management.html</anchorfile>
+      <anchor>ga84dfe7c3da5df6756c92eeca501c87fe</anchor>
+      <arglist>(const CVC_CERT *cert, BN_CTX *bn_ctx, EVP_PKEY *out)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -1834,51 +1841,51 @@
     </member>
     <member kind="variable">
       <type>ASN1_OCTET_STRING *</type>
-      <name>modulus</name>
+      <name>cont1</name>
       <anchorfile>structcvc__pubkey__st.html</anchorfile>
-      <anchor>aadf742005bf16f8ca0231efb518fc044</anchor>
+      <anchor>af1146b162c5ac3116d7c38d7519ebe29</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>ASN1_OCTET_STRING *</type>
-      <name>a</name>
+      <name>cont2</name>
       <anchorfile>structcvc__pubkey__st.html</anchorfile>
-      <anchor>a3177113a767b7584816e765407fd55be</anchor>
+      <anchor>a9e3f2ee8ffead450717d46fd481bfa2f</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>ASN1_OCTET_STRING *</type>
-      <name>b</name>
+      <name>cont3</name>
       <anchorfile>structcvc__pubkey__st.html</anchorfile>
-      <anchor>a85c70dae91aafec2931a9c634aa7b7cd</anchor>
+      <anchor>ab83ac437168fc16aaa41c7a0b9522395</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>ASN1_OCTET_STRING *</type>
-      <name>base</name>
+      <name>cont4</name>
       <anchorfile>structcvc__pubkey__st.html</anchorfile>
-      <anchor>a4efef1291912e2bc3a1cda8938123694</anchor>
+      <anchor>ad58be5d0a1fbdc86325187d87a0ec7aa</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>ASN1_OCTET_STRING *</type>
-      <name>base_order</name>
+      <name>cont5</name>
       <anchorfile>structcvc__pubkey__st.html</anchorfile>
-      <anchor>a49bb07894676078a00e6ca236cb8f2f6</anchor>
+      <anchor>aab4bae046882a2dd7b543def58fee35c</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>ASN1_OCTET_STRING *</type>
-      <name>public_point</name>
+      <name>cont6</name>
       <anchorfile>structcvc__pubkey__st.html</anchorfile>
-      <anchor>a08edf7a3eb1d47663232fcc8d74a7c98</anchor>
+      <anchor>a1f6427049f50dc10bd720b756fa8dd8d</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>ASN1_OCTET_STRING *</type>
-      <name>cofactor</name>
+      <name>cont7</name>
       <anchorfile>structcvc__pubkey__st.html</anchorfile>
-      <anchor>a2584e85c87b3c45764a52e58ab91291f</anchor>
+      <anchor>ace297c25e80edbc78986c1e63ddc363b</anchor>
       <arglist></arglist>
     </member>
   </compound>

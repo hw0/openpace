@@ -314,7 +314,7 @@ cvc-create --role<span class="o">=</span>dv_domestic --chr<span class="o">=</spa
 <span class="c"># Create plain text description</span>
 <span class="nb">echo</span> <span class="s2">&quot;whatever&quot;</span> &gt; ZZATTERM00001.txt
 <span class="c"># Create TERM certificate signed by DVCA along with the description and generate its private key</span>
-cvc-create --role<span class="o">=</span>terminal --chr<span class="o">=</span>ZZATTERM00001 --expires<span class="o">=</span><span class="sb">`</span>date --date<span class="o">=</span><span class="s2">&quot;next week&quot;</span> <span class="s2">&quot;+%^y%^m%^d&quot;</span><span class="sb">`</span> --sign-with<span class="o">=</span>ZZATDVCA00001.pkcs8 --sign-as<span class="o">=</span>ZZATDVCA00001.cvcert --scheme<span class="o">=</span>ECDSA_SHA_256 --rid --cert-desc<span class="o">=</span>ZZATTERM00001.txt --issuer-name<span class="o">=</span>CVCA --subject-name<span class="o">=</span>TERM
+cvc-create --role<span class="o">=</span>terminal --chr<span class="o">=</span>ZZATTERM00001 --expires<span class="o">=</span><span class="sb">`</span>date --date<span class="o">=</span><span class="s2">&quot;next week&quot;</span> <span class="s2">&quot;+%^y%^m%^d&quot;</span><span class="sb">`</span> --sign-with<span class="o">=</span>ZZATDVCA00001.pkcs8 --sign-as<span class="o">=</span>ZZATDVCA00001.cvcert --scheme<span class="o">=</span>ECDSA_SHA_256 --rid --cert-desc<span class="o">=</span>ZZATTERM00001.txt --issuer-name<span class="o">=</span>DVCA --subject-name<span class="o">=</span>TERM
 </pre></div>
 </div>
 </div>
