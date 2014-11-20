@@ -104,6 +104,7 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Download OpenPACE</a></li>
 <li><a class="reference internal" href="#install-openpace">Install OpenPACE</a><ul>
+<li><a class="reference internal" href="#installation-on-linux-unix-and-similar">Installation on Linux, Unix and similar</a></li>
 <li><a class="reference internal" href="#cross-compiling-openpace">Cross compiling OpenPACE</a><ul>
 <li><a class="reference internal" href="#compiling-for-windows">Compiling for Windows</a></li>
 <li><a class="reference internal" href="#compiling-for-android">Compiling for Android</a></li>
@@ -157,7 +158,8 @@
       
   <div class="section" id="download-openpace">
 <h1>Download OpenPACE<a class="headerlink" href="#download-openpace" title="Permalink to this headline">¶</a></h1>
-<p>You can find the latest release of OpenPACE on <a class="reference external" href="http://sourceforge.net/projects/openpace/files">Sourceforge</a>.</p>
+<p>You can find the latest release of OpenPACE on <a class="reference external" href="https://github.com/frankmorgner/openpace/releases">Github</a>. Older releases are still
+available on <a class="reference external" href="http://sourceforge.net/projects/openpace/files">Sourceforge</a>.</p>
 <p>Alternatively, you can clone our git repository:</p>
 <div class="highlight-sh"><div class="highlight"><pre>git clone https://github.com/frankmorgner/openpace.git
 </pre></div>
@@ -165,6 +167,8 @@
 </div>
 <div class="section" id="install-openpace">
 <h1>Install OpenPACE<a class="headerlink" href="#install-openpace" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation-on-linux-unix-and-similar">
+<h2>Installation on Linux, Unix and similar<a class="headerlink" href="#installation-on-linux-unix-and-similar" title="Permalink to this headline">¶</a></h2>
 <p>OpenPACE uses the GNU Build System to compile and install. If you are
 unfamiliar with it, please have a look at <tt class="file docutils literal"><span class="pre">INSTALL</span></tt>. If you can not find
 it, you are probably working bleeding edge in the repository.  Run the
@@ -199,6 +203,7 @@ automatically download, patch, build and install OpenSSL if needed.</p>
 You need to explicitely configure OpenPACE to install them by using
 <em class="xref std std-option">--enable-python</em>, <em class="xref std std-option">--enable-java</em>, ... This requires Swig to
 be installed along with the language&#8217;s toolchain to build the bindings.</p>
+</div>
 <div class="section" id="cross-compiling-openpace">
 <h2>Cross compiling OpenPACE<a class="headerlink" href="#cross-compiling-openpace" title="Permalink to this headline">¶</a></h2>
 <p>We have added some scripts for the ease of cross compiling for Windows and
