@@ -1,3 +1,4 @@
 _static/Makefile
 _static/Makefile.in
 _static/Makefile.am
+.buildinfo
