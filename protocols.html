@@ -307,8 +307,9 @@ key <span class="math">\(PK_{\text{PCD}}\)</span>.</p>
 <li>The terminal generates an ephemeral Diffie-Hellman key pair
 <span class="math">\((\widetilde{SK_{\text{PCD}}} , \widetilde{PK_{\text{PCD}}} ,
 D_{\text{PICC}} )\)</span>, and sends the compressed ephemeral public key
-<span class="math">\(\operatorname{Comp}( PK_{\text{PCD}})\)</span> to the MRTD chip.</li>
-<li>The terminal may send auxiliary data A PCD to the MRTD chip.</li>
+<span class="math">\(\operatorname{Comp}( \widetilde{PK_{\text{PCD}}})\)</span> to the MRTD chip.</li>
+<li>The terminal may send auxiliary data <span class="math">\(A_{\text{PCD}}\)</span> to the MRTD
+chip.</li>
 </ol>
 </li>
 <li><p class="first">The MRTD chip randomly chooses a challenge <span class="math">\(r_{\text{PICC}}\)</span> and sends
@@ -327,7 +328,7 @@ A_{\text{PCD}} )\]</div>
 <blockquote>
 <div><div class="math">
 \[\operatorname{Verify} ( PK_{\text{PCD}} , s_{\text{PCD}} ,
-ID_{\text{PICC}}\parallel r_PICC\parallel
+ID_{\text{PICC}}\parallel r_{\text{PICC}}\parallel
 \operatorname{Comp}(\widetilde{PK_{\text{PCD}}})\parallel
 A_{\text{PCD}} ) = \operatorname{true}\]</div>
 </div></blockquote>
@@ -376,7 +377,7 @@ r_{\text{PICC}})\)</span> and <span class="math">\(K_{\text{Enc}} =
 \operatorname{KDF}_{\text{Enc}} ( K , r_{\text{PICC}} )\)</span> for Secure
 Messaging from <span class="math">\(K\)</span> and <span class="math">\(r_{\text{PICC}}\)</span>, computes the
 authentication token <span class="math">\(T_{\text{PICC}} =\operatorname{\text{MAC}}(
-K_{\text{MAC}} , \widetilde{SK_{\text{PCD}}})\)</span> and sends
+K_{\text{MAC}} , \widetilde{PK_{\text{PCD}}})\)</span> and sends
 <span class="math">\(r_{\text{PICC}}\)</span> and <span class="math">\(T_{\text{PICC}}\)</span> to the terminal.</p>
 </li>
 <li><p class="first">The terminal derives session keys <span class="math">\(K_{\text{MAC}}
