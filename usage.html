@@ -304,7 +304,7 @@ Written by Frank Morgner &lt;morgner@informatik.hu-berlin.de&gt;
 </div>
 <p>Below you see an example of how to create a certificate chain of CVCA, DVCA and a Terminal:</p>
 <div class="highlight-sh"><div class="highlight"><pre><span class="c"># Create country verifying CA&#39;s private key</span>
-openssl ecparam -out ZZATCVCA00001.pem -name prime192v1 -genkey
+openssl ecparam -out ZZATCVCA00001.pem -name prime192v1 -genkey -param_enc explicit
 openssl pkcs8 -topk8 -nocrypt -in ZZATCVCA00001.pem -outform DER -out ZZATCVCA00001.pkcs8
 <span class="c"># Create self signed country verifying CA certificate</span>
 cvc-create --role<span class="o">=</span>cvca --type<span class="o">=</span>at --chr<span class="o">=</span>ZZATCVCA00001 --expires<span class="o">=</span><span class="sb">`</span>date --date<span class="o">=</span><span class="s2">&quot;next year&quot;</span> <span class="s2">&quot;+%^y%^m%^d&quot;</span><span class="sb">`</span> --sign-with<span class="o">=</span>ZZATCVCA00001.pkcs8 --scheme<span class="o">=</span>ECDSA_SHA_256 --rid
@@ -386,12 +386,12 @@ EF.CardAccess:</p>
 the chip is signed by the document signer. First we create the <abbr title="Country Signing Certificate Authority">CSCA</abbr> and the
 document signer:</p>
 <div class="highlight-sh"><div class="highlight"><pre><span class="c"># Create the country signing CA&#39;s private key</span>
-openssl ecparam -out csca_key.pem -name brainpoolP256r1 -genkey
+openssl ecparam -out csca_key.pem -name brainpoolP256r1 -genkey -param_enc explicit
 <span class="c"># Create the country verifying CA&#39;s self signed certificate</span>
 openssl req -new -x509 -days <span class="m">5000</span> -key csca_key.pem -out csca_cert.pem
 
 <span class="c"># Create the document signer&#39;s private key</span>
-openssl ecparam -out docsigner_key.pem -name brainpoolP256r1 -genkey
+openssl ecparam -out docsigner_key.pem -name brainpoolP256r1 -genkey -param_enc explicit
 <span class="c"># Create the document signer&#39;s certificate (signing request)</span>
 openssl req -new -key docsigner_key.pem -out docsigner.csr
 openssl x509 -req -in docsigner.csr -CA csca_cert.pem -CAkey csca_key.pem -CAcreateserial -out docsigner_cert.pem
@@ -399,7 +399,7 @@ openssl x509 -req -in docsigner.csr -CA csca_cert.pem -CAkey csca_key.pem -CAcre
 </div>
 <p>Now generate the chip&#8217;s private key for <abbr title="Chip Authentication">CA</abbr> and print its (public) key:</p>
 <div class="highlight-sh"><div class="highlight"><pre><span class="c"># Create chip&#39;s key</span>
-openssl ecparam -out card_key.pem -name brainpoolP256r1 -genkey
+openssl ecparam -out card_key.pem -name brainpoolP256r1 -genkey -param_enc explicit
 <span class="c"># Print the public key and copy it to the clipboard</span>
 openssl ec -in card_key.pem -text
 </pre></div>
@@ -430,7 +430,7 @@ openssl cms -sign -nodetach -binary -in efcardsecurity_content.dump -inform DER 
       
     </p>
     <p>
-        &copy; Copyright 2012-2014 by Frank Morgner and Dominik Oepen.<br/>
+        &copy; Copyright 2012-2015 by Frank Morgner and Dominik Oepen.<br/>
     </p>
   </div>
 </footer>
