@@ -318,6 +318,9 @@ cvc-create --role<span class="o">=</span>dv_domestic --chr<span class="o">=</spa
 cvc-create --role<span class="o">=</span>terminal --chr<span class="o">=</span>ZZATTERM00001 --expires<span class="o">=</span><span class="sb">`</span>date --date<span class="o">=</span><span class="s2">&quot;next week&quot;</span> <span class="s2">&quot;+%^y%^m%^d&quot;</span><span class="sb">`</span> --sign-with<span class="o">=</span>ZZATDVCA00001.pkcs8 --sign-as<span class="o">=</span>ZZATDVCA00001.cvcert --scheme<span class="o">=</span>ECDSA_SHA_256 --rid --cert-desc<span class="o">=</span>ZZATTERM00001.txt --issuer-name<span class="o">=</span>DVCA --subject-name<span class="o">=</span>TERM
 </pre></div>
 </div>
+<p>The script <tt class="file docutils literal"><span class="pre">generate-eac-pki.sh</span></tt> generates a set of
+authentication terminals and signature terminals for all signature schemes in
+all standardized elliptic curves.</p>
 </div>
 <div class="section" id="using-cvc-print">
 <h2>Using <tt class="docutils literal"><span class="pre">cvc-print</span></tt><a class="headerlink" href="#using-cvc-print" title="Permalink to this headline">¶</a></h2>
