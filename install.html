@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/breathe.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.2.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -25,10 +25,10 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="OpenPACE 1.0.0 documentation" href="index.html" />
     <link rel="next" title="Usage of OpenPACE" href="usage.html" />
@@ -39,7 +39,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body role="document">
+  <body>
   
   <a href="https://github.com/frankmorgner/openpace"
      class="visible-desktop hidden-xs"><img
@@ -120,11 +120,11 @@
               
                 
   <li>
-    <a href="index.html" title="Previous Chapter: Welcome to OpenPACE’s documentation!"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Welcome to Op...</span>
+    <a href="index.html" title="Previous Chapter: Welcome to OpenPACE’s documentation!"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Welcome to OpenP...</span>
     </a>
   </li>
   <li>
-    <a href="usage.html" title="Next Chapter: Usage of OpenPACE"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Usage of Open... &raquo;</span>
+    <a href="usage.html" title="Next Chapter: Usage of OpenPACE"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Usage of OpenPAC... &raquo;</span>
     </a>
   </li>
               
@@ -152,12 +152,12 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="download-openpace">
 <h1>Download OpenPACE<a class="headerlink" href="#download-openpace" title="Permalink to this headline">¶</a></h1>
-<p>You can find the latest release of OpenPACE on <a class="reference external" href="https://github.com/frankmorgner/openpace/releases">Github</a>. Older releases are still
-available on <a class="reference external" href="http://sourceforge.net/projects/openpace/files">Sourceforge</a>.</p>
+<p>You can download the latest release of OpenPACE on <a class="reference external" href="https://github.com/frankmorgner/openpace/releases/latest">Github</a>. Older releases
+are still available on <a class="reference external" href="http://sourceforge.net/projects/openpace/files">Sourceforge</a>.</p>
 <p>Alternatively, you can clone our git repository:</p>
 <div class="highlight-sh"><div class="highlight"><pre>git clone https://github.com/frankmorgner/openpace.git
 </pre></div>
@@ -168,14 +168,14 @@ available on <a class="reference external" href="http://sourceforge.net/projects
 <div class="section" id="installation-on-linux-unix-and-similar">
 <h2>Installation on Linux, Unix and similar<a class="headerlink" href="#installation-on-linux-unix-and-similar" title="Permalink to this headline">¶</a></h2>
 <p>OpenPACE uses the GNU Build System to compile and install. If you are
-unfamiliar with it, please have a look at <code class="file docutils literal"><span class="pre">INSTALL</span></code>. If you can not find
+unfamiliar with it, please have a look at <tt class="file docutils literal"><span class="pre">INSTALL</span></tt>. If you can not find
 it, you are probably working bleeding edge in the repository.  Run the
-following command in <code class="file docutils literal"><span class="pre">openpace</span></code> to get the missing standard
+following command in <tt class="file docutils literal"><span class="pre">openpace</span></tt> to get the missing standard
 auxiliary files:</p>
 <div class="highlight-sh"><div class="highlight"><pre>autoreconf --verbose --install
 </pre></div>
 </div>
-<p>To configure (<strong class="command">./configure --help</strong> lists possible options), build and
+<p>To configure (<strong class="command">./configure &#8211;help</strong> lists possible options), build and
 install OpenPACE now do the following:</p>
 <div class="highlight-sh"><div class="highlight"><pre>./configure
 make
@@ -193,22 +193,22 @@ You have two options to get them to work:</p>
 <p>The first option allows you to install an unchanged version of OpenSSL to your
 system. However, performance will be slightly worse and there are some
 limitations. For example, you won&#8217;t be able to use the new NIDs as labels in a
-switch statement and you need to make sure to call <code class="docutils literal"><span class="pre">EAC_init()</span></code> first.  For
-patching OpenSSL we provide <code class="file docutils literal"><span class="pre">oids.patch</span></code>. You can configure
-OpenPACE with <code class="xref std std-option docutils literal"><span class="pre">--enable-openssl-install</span></code>, which will
+switch statement and you need to make sure to call <tt class="docutils literal"><span class="pre">EAC_init()</span></tt> first.  For
+patching OpenSSL we provide :<a class="reference external" href="file:bsi_objects">file:bsi_objects</a>.txt``. You can configure
+OpenPACE with <em class="xref std std-option">--enable-openssl-install</em>, which will
 automatically download, patch, build and install OpenSSL if needed.</p>
 <p>The language bindings for Python, Java, ... are currently disabled by default.
 You need to explicitely configure OpenPACE to install them by using
-<code class="xref std std-option docutils literal"><span class="pre">--enable-python</span></code>, <code class="xref std std-option docutils literal"><span class="pre">--enable-java</span></code>, ... This requires SWIG to
+<em class="xref std std-option">--enable-python</em>, <em class="xref std std-option">--enable-java</em>, ... This requires SWIG to
 be installed along with the language&#8217;s toolchain to build the bindings.</p>
 </div>
 <div class="section" id="cross-compiling-openpace">
 <h2>Cross compiling OpenPACE<a class="headerlink" href="#cross-compiling-openpace" title="Permalink to this headline">¶</a></h2>
 <p>We have added some scripts for the ease of cross compiling for Windows and
 Android. Both are tested with Debian wheezy. First create a working
-<code class="file docutils literal"><span class="pre">Makefile</span></code>:</p>
+<tt class="file docutils literal"><span class="pre">Makefile</span></tt>:</p>
 <div class="highlight-sh"><div class="highlight"><pre><span class="nb">test</span> -x configure <span class="o">||</span> autoreconf --verbose --install
-./configure
+./configure --enable-openssl-install
 </pre></div>
 </div>
 <div class="section" id="compiling-for-windows">
@@ -230,39 +230,74 @@ Android. Both are tested with Debian wheezy. First create a working
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">WIN_TOOL</span></code></td>
-<td><code class="docutils literal"><span class="pre">i686-w64-mingw32</span></code></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">WIN_TOOL</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">i686-w64-mingw32</span></tt></td>
 <td>cross compiler</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">WIN_TOOL_DIR</span></code></td>
-<td><code class="docutils literal"><span class="pre">/usr/${WIN_TOOL}</span></code></td>
-<td>root directory of the cross compiler containing the <code class="file docutils literal"><span class="pre">lib</span></code> and <code class="file docutils literal"><span class="pre">include</span></code> folders</td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">WIN_TOOL_DIR</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">/usr/${WIN_TOOL}</span></tt></td>
+<td>root directory of the cross compiler containing the <tt class="file docutils literal"><span class="pre">lib</span></tt> and <tt class="file docutils literal"><span class="pre">include</span></tt> folders</td>
 </tr>
 </tbody>
 </table>
 <p>On successfull compilation, the Windows binaries can be found in
-<code class="file docutils literal"><span class="pre">openpace-1.0.0_win32</span></code>.</p>
+<tt class="file docutils literal"><span class="pre">openpace-1.0.0_win32</span></tt>.</p>
 <p>With these binaries you may now compile the native Python bindings. For this
 you need to setup your Windows as following:</p>
-<ol class="arabic simple">
-<li>Check out the git repository to the directory <code class="file docutils literal"><span class="pre">openpace</span></code></li>
-<li>Install <a class="reference external" href="http://www.swig.org/download.html">SWIG</a> <a class="footnote-reference" href="#id9" id="id10">[5]</a> and modify the <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal"><span class="pre">PATH</span></code> so that <strong class="command">swig.exe</strong> can be found.</li>
-<li>Install <cite>Python</cite> and set <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal"><span class="pre">PYTHON_INCLUDE</span></code> and <span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal"><span class="pre">PYTHON_LIB</span></code> accordingly (e.g., to <code class="docutils literal"><span class="pre">&quot;C:\Python27\include&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;C:\Python27\python278.lib&quot;</span></code> respectively)</li>
-<li>Copy the cross compiled OpenPACE libraries from above to the OpenPACE root directory (i.e., to <code class="file docutils literal"><span class="pre">openpace\openpace-0.9_win32</span></code>).</li>
-<li>Install <a class="reference external" href="http://msdn.microsoft.com/library/dd831853.aspx">Visual Studio 2013</a> <a class="footnote-reference" href="#id11" id="id12">[6]</a></li>
-</ol>
-<p>Start Visual Studio by opening <code class="file docutils literal"><span class="pre">openpace\bindings\win32\eac.sln</span></code>. If
-you can successfully <span class="guilabel">Build the solution</span>, you can find the compiled
-binaries in <code class="file docutils literal"><span class="pre">openpace\bindings\win32\Release</span></code>. It contains
-<code class="file docutils literal"><span class="pre">eac.py</span></code> and <code class="file docutils literal"><span class="pre">_eac.pyd</span></code>. Copy these two files to
-<code class="file docutils literal"><span class="pre">openpace\openpace-0.9_win32\bin</span></code> and you&#8217;re done. Now for testing, you
-may try:</p>
-<div class="highlight-sh"><div class="highlight"><pre><span class="nb">cd </span>openpace<span class="se">\\</span>openpace-0.9_win32<span class="se">\\</span>bin
-python.exe
-&gt;&gt;&gt; import eac
-&gt;&gt;&gt; eac.EAC_init<span class="o">()</span>
+<ol class="arabic">
+<li><p class="first">Check out the git repository to the directory <tt class="file docutils literal"><span class="pre">C:\openpace</span></tt></p>
+</li>
+<li><p class="first">Install <a class="reference external" href="http://msdn.microsoft.com/library/dd831853.aspx">Visual Studio 2013</a> <a class="footnote-reference" href="#id13" id="id14">[7]</a> and open <em class="menuselection">Visual Studio Tools
+‣ Developer Command Prompt</em></p>
+</li>
+<li><p class="first">Install <a class="reference external" href="http://www.swig.org/download.html">SWIG</a> <a class="footnote-reference" href="#id9" id="id10">[5]</a> and modify the <span class="target" id="index-0"></span><tt class="xref std std-envvar docutils literal"><span class="pre">PATH</span></tt> so that <strong class="command">swig.exe</strong>
+can be found:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">set </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;C:\swig&quot;</span><span class="p">;</span>%PATH%
 </pre></div>
 </div>
+</li>
+<li><p class="first">Install <a class="reference external" href="https://www.python.org/downloads/release/python-278/">Python</a> <a class="footnote-reference" href="#id11" id="id12">[6]</a> and set <span class="target" id="index-1"></span><tt class="xref std std-envvar docutils literal"><span class="pre">PYTHON_INCLUDE</span></tt> and
+<span class="target" id="index-2"></span><tt class="xref std std-envvar docutils literal"><span class="pre">PYTHON_LIBD</span></tt>/<span class="target" id="index-3"></span><tt class="xref std std-envvar docutils literal"><span class="pre">PYTHON_LIB</span></tt> accordingly:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">set </span><span class="nv">PYTHON_INCLUDE</span><span class="o">=</span><span class="s2">&quot;C:\Python27\include&quot;</span>
+<span class="nb">set </span><span class="nv">PYTHON_LIBD</span><span class="o">=</span><span class="s2">&quot;C:\Python27&quot;</span>
+<span class="nb">set </span><span class="nv">PYTHON_LIB</span><span class="o">=</span><span class="s2">&quot;python278.lib&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Copy the cross compiled OpenPACE libraries to Windows and set <span class="target" id="index-4"></span><tt class="xref std std-envvar docutils literal"><span class="pre">OPENPACE_ROOT</span></tt>:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">set </span><span class="nv">OPENPACE_ROOT</span><span class="o">=</span><span class="s2">&quot;C:\openpace\openpace-1.0.0_win32</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create OpenPACE&#8217;s and OpenSSL&#8217;s import libraries:</p>
+<div class="highlight-sh"><div class="highlight"><pre>lib /def:<span class="s2">&quot;%OPENPACE_ROOT%\lib\libeac-1.def&quot;</span> /OUT:<span class="s2">&quot;%OPENPACE_ROOT%\lib\libeac.lib&quot;</span>
+lib /def:<span class="s2">&quot;%OPENPACE_ROOT%\lib\libeay32.def&quot;</span> /OUT:<span class="s2">&quot;%OPENPACE_ROOT%\lib\libeay32.lib&quot;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="6">
+<li><p class="first">Build the Python bindings:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">cd</span> <span class="s2">&quot;C:\openpace&quot;</span>
+msbuild <span class="s2">&quot;bindings\win32\eac.sln&quot;</span>
+</pre></div>
+</div>
+<p>If you can successfully build the solution, you can find the python in
+<tt class="file docutils literal"><span class="pre">%OPENPACE_ROOT%\bindings\win32\Release</span></tt>. Put them all together
+with the cross compiled OpenPACE library:</p>
+<div class="highlight-sh"><div class="highlight"><pre>copy <span class="s2">&quot;C:\openpace\bindings\win32\Release\_eac.pyd&quot;</span> <span class="s2">&quot;%OPENPACE_ROOT%\bin&quot;</span>
+copy <span class="s2">&quot;C:\openpace\bindings\win32\Release\eac.py&quot;</span>   <span class="s2">&quot;%OPENPACE_ROOT%\bin&quot;</span>
+copy <span class="s2">&quot;C:\openpace\bindings\python\chat.py&quot;</span>         <span class="s2">&quot;%OPENPACE_ROOT%\bin&quot;</span>
+copy <span class="s2">&quot;C:\openpace\bindings\python\pace_entity.py&quot;</span>  <span class="s2">&quot;%OPENPACE_ROOT%\bin&quot;</span>
+</pre></div>
+</div>
+<p>Now for testing, you may try:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">cd</span> <span class="s2">&quot;%OPENPACE_ROOT%\bin&quot;</span>
+<span class="s2">&quot;%PYTHON_LIBD%\python.exe&quot;</span> <span class="s2">&quot;C:\openpace\bindings\python\example.py&quot;</span>
+</pre></div>
+</div>
+</li>
+</ol>
 </div>
 <div class="section" id="compiling-for-android">
 <h3>Compiling for Android<a class="headerlink" href="#compiling-for-android" title="Permalink to this headline">¶</a></h3>
@@ -283,22 +318,22 @@ python.exe
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">ANDROID_ARCH</span></code></td>
-<td><code class="docutils literal"><span class="pre">arm</span></code></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">ANDROID_ARCH</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">arm</span></tt></td>
 <td>target Architecture</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">ANDROID_TOOL</span></code></td>
-<td><code class="docutils literal"><span class="pre">${ANDROID_ARCH}-linux-androideabi</span></code></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">ANDROID_TOOL</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">${ANDROID_ARCH}-linux-androideabi</span></tt></td>
 <td>cross compiler</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">MAKE_STANDALONE_TOOLCHAIN</span></code></td>
-<td><code class="docutils literal"><span class="pre">${HOME}/.local/opt/android-ndk-r9/build/tools/make-standalone-toolchain.sh</span></code></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">MAKE_STANDALONE_TOOLCHAIN</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">${HOME}/.local/opt/android-ndk-r10e/build/tools/make-standalone-toolchain.sh</span></tt></td>
 <td>location of the NDK script for creating the toolchain</td>
 </tr>
 </tbody>
 </table>
 <p>On successfull compilation, the Android binaries can be found in
-<code class="file docutils literal"><span class="pre">openpace-1.0.0_$</span><em><span class="pre">ANDROID_ARCH</span></em></code>.</p>
+<tt class="file docutils literal"><span class="pre">openpace-1.0.0_$</span><em><span class="pre">ANDROID_ARCH</span></em><span class="pre">-linux-androideabi</span></tt>.</p>
 </div>
 <div class="section" id="compiling-for-javascript">
 <span id="javascript-api"></span><h3>Compiling for Javascript<a class="headerlink" href="#compiling-for-javascript" title="Permalink to this headline">¶</a></h3>
@@ -321,18 +356,17 @@ and then translated into Javascript. Use the following command:</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">EMSCRIPTEN_DIR</span></code></td>
-<td><code class="docutils literal"><span class="pre">${HOME}/.local/src/emscripten</span></code></td>
-<td>root directory of emscripten containing the <code class="file docutils literal"><span class="pre">system/include/libc</span></code> folder</td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">EMSCRIPTEN_ROOT</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">${HOME}/.local/src/emscripten</span></tt></td>
+<td>root directory of emscripten containing the <tt class="file docutils literal"><span class="pre">system/include/libc</span></tt> folder</td>
 </tr>
 </tbody>
 </table>
 <p>On successfull compilation, the compiled bitcode files can be found in
-<code class="file docutils literal"><span class="pre">openpace-1.0.0_bc</span></code>. You can run our testsuite
+<tt class="file docutils literal"><span class="pre">openpace-1.0.0_js</span></tt>. You can run our testsuite
 completely in Javascript or <a class="reference external" href="_static/eactest.html">in your browser</a>:</p>
-<div class="highlight-sh"><div class="highlight"><pre>nodejs openpace-1.0.0_bc/eactest.js
-<span class="c"># WARNING: Our tests are very time consuming and might stall your browser for a moment or two...</span>
-firefox openpace-1.0.0_bc/eactest.html
+<div class="highlight-sh"><div class="highlight"><pre>nodejs openpace-1.0.0_js/bin/eactest.js
+firefox openpace-1.0.0_js/eactest.html
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -373,7 +407,13 @@ twice before using the Javascript version of OpenPACE.</p>
 <table class="docutils footnote" frame="void" id="id11" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id12">[6]</a></td><td><a class="reference external" href="http://msdn.microsoft.com/library/dd831853.aspx">http://msdn.microsoft.com/library/dd831853.aspx</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id12">[6]</a></td><td><a class="reference external" href="https://www.python.org/downloads/release/python-278/">https://www.python.org/downloads/release/python-278/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id14">[7]</a></td><td><a class="reference external" href="http://msdn.microsoft.com/library/dd831853.aspx">http://msdn.microsoft.com/library/dd831853.aspx</a></td></tr>
 </tbody>
 </table>
 </div>

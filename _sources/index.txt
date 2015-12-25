@@ -11,20 +11,12 @@
 Welcome to OpenPACE's documentation!
 ###############################################################################
 
-.. image:: https://travis-ci.org/frankmorgner/openpace.png?branch=master
-  :target: https://travis-ci.org/frankmorgner/openpace
-  :alt: Build Status Image
-
-.. image:: https://scan.coverity.com/projects/1789/badge.svg
-  :target: https://scan.coverity.com/projects/1789
-  :alt: Coverity Scan Build Status
-
 .. sidebar:: Summary
 
     Cryptographic library for EAC version 2
 
     :Authors:
-        - `Frank Morgner <morgner@informatik.hu-berlin.de>`_
+        - `Frank Morgner <frankmorgner@gmail.com>`_
         - `Dominik Oepen <oepen@informatik.hu-berlin.de>`_
     :License:
         GPL version 3
@@ -70,6 +62,18 @@ for:
 - Javascript
 - Java
 - Go
+
+.. image:: https://img.shields.io/travis/frankmorgner/openpace/master.svg?label=Travis%20CI%20build
+    :target: https://travis-ci.org/frankmorgner/openpace
+    :alt: Travis CI Build Status Image
+
+.. image:: https://img.shields.io/appveyor/ci/frankmorgner/openpace/master.svg?label=AppVeyor%20build
+    :target: https://ci.appveyor.com/project/frankmorgner/openpace
+    :alt: AppVeyor CI Build Status Image
+
+.. image:: https://img.shields.io/coverity/scan/1789.svg?label=Coverity%20scan
+    :target: https://scan.coverity.com/projects/1789
+    :alt: Coverity Scan Status
 
 .. note::
     OpenPACE only implements the cryptographic protocols of the |EAC|. If you

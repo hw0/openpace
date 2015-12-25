@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/breathe.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.2.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -25,10 +25,10 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="OpenPACE 1.0.0 documentation" href="index.html" />
     <link rel="next" title="Programming with OpenPACE" href="programming.html" />
@@ -39,7 +39,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body role="document">
+  <body>
   
   <a href="https://github.com/frankmorgner/openpace"
      class="visible-desktop hidden-xs"><img
@@ -101,9 +101,9 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Usage of OpenPACE</a><ul>
-<li><a class="reference internal" href="#using-libeac">Using <code class="docutils literal"><span class="pre">libeac</span></code></a></li>
-<li><a class="reference internal" href="#using-cvc-create-to-create-the-eac-pki">Using <code class="docutils literal"><span class="pre">cvc-create</span></code> to Create the EAC PKI</a></li>
-<li><a class="reference internal" href="#using-cvc-print">Using <code class="docutils literal"><span class="pre">cvc-print</span></code></a></li>
+<li><a class="reference internal" href="#using-libeac">Using <tt class="docutils literal"><span class="pre">libeac</span></tt></a></li>
+<li><a class="reference internal" href="#using-cvc-create-to-create-the-eac-pki">Using <tt class="docutils literal"><span class="pre">cvc-create</span></tt> to Create the EAC PKI</a></li>
+<li><a class="reference internal" href="#using-cvc-print">Using <tt class="docutils literal"><span class="pre">cvc-print</span></tt></a></li>
 <li><a class="reference internal" href="#creating-the-document-pki-and-ef-cardaccess-ef-cardsecurity">Creating the Document PKI and EF.CardAccess/EF.CardSecurity</a></li>
 </ul>
 </li>
@@ -116,11 +116,11 @@
               
                 
   <li>
-    <a href="install.html" title="Previous Chapter: Download OpenPACE"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Download Open...</span>
+    <a href="install.html" title="Previous Chapter: Download OpenPACE"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Download OpenPAC...</span>
     </a>
   </li>
   <li>
-    <a href="programming.html" title="Next Chapter: Programming with OpenPACE"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Programming w... &raquo;</span>
+    <a href="programming.html" title="Next Chapter: Programming with OpenPACE"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Programming with... &raquo;</span>
     </a>
   </li>
               
@@ -148,20 +148,20 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="usage-of-openpace">
 <h1>Usage of OpenPACE<a class="headerlink" href="#usage-of-openpace" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="using-libeac">
-<h2>Using <code class="docutils literal"><span class="pre">libeac</span></code><a class="headerlink" href="#using-libeac" title="Permalink to this headline">¶</a></h2>
+<h2>Using <tt class="docutils literal"><span class="pre">libeac</span></tt><a class="headerlink" href="#using-libeac" title="Permalink to this headline">¶</a></h2>
 <p>OpenPACE is a native C library on top of OpenSSL. If you want to know how to
 use OpenPACE from C/C++, have a look at our <a class="reference external" href="_static/doxygen/modules.html">API documentation</a>.</p>
 <p>OpenPACE uses <a class="reference external" href="http://swig.org">SWIG</a> to offer bindings in some more
 programming languages. The bindings are easily portable to lots of different
 languages. Currently, native language bindings need to be explicitly turned on
-with <code class="docutils literal"><span class="pre">./configure</span> <span class="pre">--enable-...</span></code></p>
+with <tt class="docutils literal"><span class="pre">./configure</span> <span class="pre">--enable-...</span></tt></p>
 <p>If you have chosen to install OpenPACE in a non-standard location you have to
-set up the <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal"><span class="pre">LD_LIBRARY_PATH</span></code> environment variable correctly. One way to
+set up the <span class="target" id="index-0"></span><tt class="xref std std-envvar docutils literal"><span class="pre">LD_LIBRARY_PATH</span></tt> environment variable correctly. One way to
 do this on Linux is:</p>
 <div class="highlight-sh"><div class="highlight"><pre><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/path/to/libeac
 </pre></div>
@@ -184,7 +184,7 @@ file that can be used without special requirements.</p>
 </div>
 </div>
 <div class="section" id="using-cvc-create-to-create-the-eac-pki">
-<h2>Using <code class="docutils literal"><span class="pre">cvc-create</span></code> to Create the EAC PKI<a class="headerlink" href="#using-cvc-create-to-create-the-eac-pki" title="Permalink to this headline">¶</a></h2>
+<h2>Using <tt class="docutils literal"><span class="pre">cvc-create</span></tt> to Create the EAC PKI<a class="headerlink" href="#using-cvc-create-to-create-the-eac-pki" title="Permalink to this headline">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.9: </span><cite>cvc-create</cite> is a command line tool for creating a <abbr title="Extended Access Control">EAC</abbr> PKI of
 Authentication Terminals, Signature Terminals or Inspection Systems.</p>
@@ -206,20 +206,9 @@ Usage: cvc-create [OPTIONS]...
                                (possible values=&quot;at&quot;, &quot;is&quot;, &quot;st&quot;,
                                &quot;derived_from_signer&quot;
                                default=`derived_from_signer&#39;)
-      --chr=CCH...HSSSSS     Certificate holder reference (2 characters ISO
-                               3166-1 ALPHA-2 country code, 0-9 characters
-                               ISO/IEC 8859-1 holder mnemonic, 5 characters
-                               ISO/IEC 8859-1 numeric or alphanumeric sequence
-                               number)
       --issued=YYMMDD        Date the certificate was issued  (default=`today&#39;)
       --expires=YYMMDD       Date until the certicate is valid
       --sign-with=FILENAME   Private key for signing the new certificate
-      --sign-as=FILENAME     CV certificate of the entity signing the new
-                               certificate  (default=`self signed&#39;)
-      --key=FILENAME         Private key of the Terminal  (default=`derived
-                               from signer&#39;)
-      --out-key=FILENAME     Where to save the derived private key
-                               (default=`CHR.pkcs8&#39;)
       --scheme=ENUM          Signature scheme that the new terminal will use
                                (possible values=&quot;ECDSA_SHA_1&quot;,
                                &quot;ECDSA_SHA_224&quot;, &quot;ECDSA_SHA_256&quot;,
@@ -227,6 +216,24 @@ Usage: cvc-create [OPTIONS]...
                                &quot;RSA_v1_5_SHA_1&quot;, &quot;RSA_v1_5_SHA_256&quot;,
                                &quot;RSA_v1_5_SHA_512&quot;, &quot;RSA_PSS_SHA_1&quot;,
                                &quot;RSA_PSS_SHA_256&quot;, &quot;RSA_PSS_SHA_512&quot;)
+
+ Mode: csr
+  The properties of the certificate are derived from the given signing request.
+      --csr=FILENAME         Certificate signing request with the attributes
+
+ Mode: manual
+  The properties of the certificate are derived from the command line switches.
+      --chr=CCH...HSSSSS     Certificate holder reference (2 characters ISO
+                               3166-1 ALPHA-2 country code, 0-9 characters
+                               ISO/IEC 8859-1 holder mnemonic, 5 characters
+                               ISO/IEC 8859-1 numeric or alphanumeric sequence
+                               number)
+      --sign-as=FILENAME     CV certificate of the entity signing the new
+                               certificate  (default=`self signed&#39;)
+      --key=FILENAME         Private key of the Terminal  (default=`derived
+                               from signer&#39;)
+      --out-key=FILENAME     Where to save the derived private key
+                               (default=`CHR.pkcs8&#39;)
 
 Options for an Authentication Terminal (AT):
       --cert-desc=FILENAME   Certificate description (as *.txt, *.html or
@@ -316,7 +323,7 @@ Options for an Inspection System (IS):
 
 Report bugs to https://github.com/frankmorgner/openpace/issues
 
-Written by Frank Morgner &lt;morgner@informatik.hu-berlin.de&gt;
+Written by Frank Morgner &lt;frankmorgner@gmail.com&gt;
 </pre></div>
 </div>
 <p>Below you see an example of how to create a certificate chain of CVCA, DVCA and a Terminal:</p>
@@ -335,12 +342,12 @@ cvc-create --role<span class="o">=</span>dv_domestic --chr<span class="o">=</spa
 cvc-create --role<span class="o">=</span>terminal --chr<span class="o">=</span>ZZATTERM00001 --expires<span class="o">=</span><span class="sb">`</span>date --date<span class="o">=</span><span class="s2">&quot;next week&quot;</span> <span class="s2">&quot;+%^y%^m%^d&quot;</span><span class="sb">`</span> --sign-with<span class="o">=</span>ZZATDVCA00001.pkcs8 --sign-as<span class="o">=</span>ZZATDVCA00001.cvcert --scheme<span class="o">=</span>ECDSA_SHA_256 --rid --cert-desc<span class="o">=</span>ZZATTERM00001.txt --issuer-name<span class="o">=</span>DVCA --subject-name<span class="o">=</span>TERM
 </pre></div>
 </div>
-<p>The script <code class="file docutils literal"><span class="pre">generate-eac-pki.sh</span></code> generates a set of
+<p>The script <tt class="file docutils literal"><span class="pre">generate-eac-pki.sh</span></tt> generates a set of
 authentication terminals and signature terminals for all signature schemes in
 all standardized elliptic curves.</p>
 </div>
 <div class="section" id="using-cvc-print">
-<h2>Using <code class="docutils literal"><span class="pre">cvc-print</span></code><a class="headerlink" href="#using-cvc-print" title="Permalink to this headline">¶</a></h2>
+<h2>Using <tt class="docutils literal"><span class="pre">cvc-print</span></tt><a class="headerlink" href="#using-cvc-print" title="Permalink to this headline">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.8: </span><cite>cvc-print</cite> is a command line tool for printing card verifiable certificates.</p>
 </div>
@@ -372,7 +379,7 @@ cvc-print --cvc ZZATTERM00001.cvcert --description ZZATTERM00001.desc
 <h2>Creating the Document PKI and EF.CardAccess/EF.CardSecurity<a class="headerlink" href="#creating-the-document-pki-and-ef-cardaccess-ef-cardsecurity" title="Permalink to this headline">¶</a></h2>
 <p>The card&#8217;s key agreement capabilities can be read by the terminal from
 EF.CardAccess.  The standardized domain parameter for <abbr title="Chip Authentication">CA</abbr> (e.g.
-brainpoolP256r1/<code class="docutils literal"><span class="pre">0x0D</span></code>) need to match the key agreement scheme for <abbr title="Chip Authentication">CA</abbr> (e.g.
+brainpoolP256r1/<tt class="docutils literal"><span class="pre">0x0D</span></tt>) need to match the key agreement scheme for <abbr title="Chip Authentication">CA</abbr> (e.g.
 ECDH):</p>
 <div class="highlight-sh"><div class="highlight"><pre><span class="nv">asn1</span><span class="o">=</span>SET:SecurityInfos
 
@@ -403,7 +410,7 @@ ECDH):</p>
 <span class="hll"><span class="nv">parameter</span><span class="o">=</span>INTEGER:0x0D
 </span></pre></div>
 </div>
-<p>The above example can be found in <code class="file docutils literal"><span class="pre">doc/efcardaccess_asn1.conf</span></code>. OpenSSL
+<p>The above example can be found in <tt class="file docutils literal"><span class="pre">doc/efcardaccess_asn1.conf</span></tt>. OpenSSL
 can translate this into its ASN.1 represantation, which gives us
 EF.CardAccess:</p>
 <div class="highlight-sh"><div class="highlight"><pre>openssl asn1parse -genconf efcardaccess_asn1.conf -out efcardaccess.dump

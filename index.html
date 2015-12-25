@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/breathe.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.2.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -25,10 +25,10 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="OpenPACE 1.0.0 documentation" href="#" />
     <link rel="next" title="Download OpenPACE" href="install.html" />
@@ -38,7 +38,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body role="document">
+  <body>
   
   <a href="https://github.com/frankmorgner/openpace"
      class="visible-desktop hidden-xs"><img
@@ -113,7 +113,7 @@
               
                 
   <li>
-    <a href="install.html" title="Next Chapter: Download OpenPACE"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Download Open... &raquo;</span>
+    <a href="install.html" title="Next Chapter: Download OpenPACE"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Download OpenPAC... &raquo;</span>
     </a>
   </li>
               
@@ -141,12 +141,10 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="welcome-to-openpace-s-documentation">
 <h1>Welcome to OpenPACE&#8217;s documentation!<a class="headerlink" href="#welcome-to-openpace-s-documentation" title="Permalink to this headline">¶</a></h1>
-<a class="reference external image-reference" href="https://travis-ci.org/frankmorgner/openpace"><img alt="Build Status Image" src="https://travis-ci.org/frankmorgner/openpace.png?branch=master" /></a>
-<a class="reference external image-reference" href="https://scan.coverity.com/projects/1789"><img alt="Coverity Scan Build Status" src="https://scan.coverity.com/projects/1789/badge.svg" /></a>
 <div class="sidebar">
 <p class="first sidebar-title">Summary</p>
 <p>Cryptographic library for EAC version 2</p>
@@ -155,7 +153,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Authors:</th><td class="field-body"><ul class="first simple">
-<li><a class="reference external" href="mailto:morgner&#37;&#52;&#48;informatik&#46;hu-berlin&#46;de">Frank Morgner</a></li>
+<li><a class="reference external" href="mailto:frankmorgner&#37;&#52;&#48;gmail&#46;com">Frank Morgner</a></li>
 <li><a class="reference external" href="mailto:oepen&#37;&#52;&#48;informatik&#46;hu-berlin&#46;de">Dominik Oepen</a></li>
 </ul>
 </td>
@@ -216,6 +214,9 @@ for:</p>
 <li>Java</li>
 <li>Go</li>
 </ul>
+<a class="reference external image-reference" href="https://travis-ci.org/frankmorgner/openpace"><img alt="Travis CI Build Status Image" src="https://img.shields.io/travis/frankmorgner/openpace/master.svg?label=Travis%20CI%20build" /></a>
+<a class="reference external image-reference" href="https://ci.appveyor.com/project/frankmorgner/openpace"><img alt="AppVeyor CI Build Status Image" src="https://img.shields.io/appveyor/ci/frankmorgner/openpace/master.svg?label=AppVeyor%20build" /></a>
+<a class="reference external image-reference" href="https://scan.coverity.com/projects/1789"><img alt="Coverity Scan Status" src="https://img.shields.io/coverity/scan/1789.svg?label=Coverity%20scan" /></a>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">OpenPACE only implements the cryptographic protocols of the <abbr title="Extended Access Control">EAC</abbr>. If you
@@ -240,12 +241,12 @@ the <a class="reference external" href="https://frankmorgner.github.io/vsmartcar
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage of OpenPACE</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#using-libeac">Using <code class="docutils literal"><span class="pre">libeac</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#using-libeac">Using <tt class="docutils literal"><span class="pre">libeac</span></tt></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="programming.html">Programming with OpenPACE</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#using-cvc-create-to-create-the-eac-pki">Using <code class="docutils literal"><span class="pre">cvc-create</span></code> to Create the EAC PKI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#using-cvc-print">Using <code class="docutils literal"><span class="pre">cvc-print</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#using-cvc-create-to-create-the-eac-pki">Using <tt class="docutils literal"><span class="pre">cvc-create</span></tt> to Create the EAC PKI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#using-cvc-print">Using <tt class="docutils literal"><span class="pre">cvc-print</span></tt></a></li>
 <li class="toctree-l2"><a class="reference internal" href="usage.html#creating-the-document-pki-and-ef-cardaccess-ef-cardsecurity">Creating the Document PKI and EF.CardAccess/EF.CardSecurity</a></li>
 </ul>
 </li>
