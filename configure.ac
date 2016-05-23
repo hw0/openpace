@@ -107,7 +107,13 @@ then
 
     builddir=`pwd`
     CRYPTO_CFLAGS="-I${builddir}/src/openssl/include"
-    CRYPTO_LIBS="-L${builddir}/src/openssl -lcrypto"
+    case "${host}" in
+        *-mingw*|*-winnt*)
+            CRYPTO_LIBS="-L${builddir}/src/openssl -lcrypto -lgdi32"
+            ;;
+        *)
+            CRYPTO_LIBS="-L${builddir}/src/openssl -lcrypto"
+    esac
 
 else
     INSTALL_OPENSSL=no
