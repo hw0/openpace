@@ -1,112 +1,95 @@
 .. highlight:: sh
 
-.. |PACE| replace:: :abbr:`PACE (Password Authenticated Connection Establishment)`
-.. |TA| replace:: :abbr:`TA (Terminal Authenticatation)`
-.. |CA| replace:: :abbr:`CA (Chip Authentication)`
-.. |EAC| replace:: :abbr:`EAC (Extended Access Control)`
-.. |CVCA| replace:: :abbr:`CVCA (Country Verifying Certificate Authority)`
-.. |CSCA| replace:: :abbr:`CSCA (Country Signing Certificate Authority)`
+.. |vsmartcard| replace:: Virtual Smart Card Architecture
 
-###############################################################################
-Welcome to OpenPACE's documentation!
-###############################################################################
+################################################################################
+Welcome to the |vsmartcard| documentation!
+################################################################################
 
-.. sidebar:: Summary
+Welcome to the |vsmartcard|. |vsmartcard| is an umbrella project for various
+projects concerned with the emulation of different types of smart card readers
+or smart cards themselves.
 
-    Cryptographic library for EAC version 2
+.. tikz:: The Virtual Smart Card Architecture connects different aspects of smart card handling
+    :stringsubst:
+    :libs: arrows, calc, fit, patterns, plotmarks, shapes.geometric, shapes.misc, shapes.symbols, shapes.arrows, shapes.callouts, shapes.multipart, shapes.gates.logic.US, shapes.gates.logic.IEC, er, automata, backgrounds, chains, topaths, trees, petri, mindmap, matrix, calendar, folding, fadings, through, positioning, scopes, decorations.fractals, decorations.shapes, decorations.text, decorations.pathmorphing, decorations.pathreplacing, decorations.footprints, decorations.markings, shadows
 
-    :Authors:
-        - `Frank Morgner <frankmorgner@gmail.com>`_
-        - `Dominik Oepen <oepen@informatik.hu-berlin.de>`_
-    :License:
-        GPL version 3
-    :Tested Platforms:
-        - Windows
-        - Linux (Debian, Ubuntu, SUSE, OpenMoko)
-        - FreeBSD
-        - Mac OS
-        - Solaris
-        - Android
-        - Javascript
+    \input{%(wd)s/bilder/tikzstyles.tex}
+    \tikzstyle{bla}=[box, klein, rounded rectangle,  inner sep=.3cm]
+    \node (a) {};
 
-OpenPACE implements Extended Access Control (EAC) version 2 as specified in
-`BSI TR-03110`_. OpenPACE comprises support for the following protocols:
+    \node[bla, above left=.5cm of a]
+    (usb) {USB Terminal};
 
-:Password Authenticated Connection Establishment (PACE):
-    Establish a secure channel with a strong key between two parties that only
-    share a weak secret.
-:Terminal Authentication (TA):
-    Verify/prove the terminal's certificate (or rather certificate chain) and
-    secret key.
-:Chip Authentication (CA):
-    Establish a secure channel based on the chip's static key pair proving its
-    authenticy.
+    \node[bla, below left=.5cm of a]
+    (nfc) {NFC Terminal};
 
-Furthermore, OpenPACE also supports Card Verifiable Certificates (CV
-Certificates) and signing requests as well as easy to use wrappers for using
-the established secure channels.
+    \node[bla, rounded rectangle left arc=concave, above right=.5cm of a]
+    (sc)  {Real Smart Card};
 
-The handlers for looking up trust anchors during |TA| and |CA| (i.e. the |CVCA|
-and the |CSCA| certificates) can be customized. By default, the appropriate
-certificates will be looked up in the file system.
+    \node[bla, rounded rectangle left arc=concave, below right=.5cm of a]
+    (vsc) {Virtual Smart Card};
 
-OpenPACE supports all variants of |PACE| (DH/ECDH, GM/IM), |TA|
-(RSASSA-PKCS1-v1_5/RSASSA-PSS/ECDSA), |CA| (DH/ECDH) and all standardized
-domain parameters (GFP/ECP).
-
-OpenPACE is implemented as C-library and comes with native language wrappers
-for:
-
-- Python
-- Ruby
-- Javascript
-- Java
-- Go
-
-.. image:: https://img.shields.io/travis/frankmorgner/openpace/master.svg?label=Travis%20CI%20build
-    :target: https://travis-ci.org/frankmorgner/openpace
-    :alt: Travis CI Build Status Image
-
-.. image:: https://img.shields.io/appveyor/ci/frankmorgner/openpace/master.svg?label=AppVeyor%20build
-    :target: https://ci.appveyor.com/project/frankmorgner/openpace
-    :alt: AppVeyor CI Build Status Image
-
-.. image:: https://img.shields.io/coverity/scan/1789.svg?label=Coverity%20scan
-    :target: https://scan.coverity.com/projects/1789
-    :alt: Coverity Scan Status
-
-.. note::
-    OpenPACE only implements the cryptographic protocols of the |EAC|. If you
-    actually want to exchange data with a smart card, you need to take care of
-    formatting and sending the data in the form of APDUs. If this is what
-    you're trying to do, you should have a look at the :command:`npa-tool` of
-    the `nPA Smart Card Library`_.
+    \begin{pgfonlayer}{background}
+    \path[line width=.8cm,color=hublue!20]
+    (a.mid) edge [out=180, in=0] (usb.center)
+    edge [out=180, in=0] (nfc.center)
+    edge [out=0, in=180] (sc.center)
+    edge [out=0, in=180] (vsc.center)
+    ;
+    \end{pgfonlayer}
 
 
-*******************************************************************************
-Further Reading
-*******************************************************************************
+Currently the following projects are part of |vsmartcard|: 
 
 .. toctree::
-    :maxdepth: 3
+   :titlesonly:
 
-    install
-    usage
-    protocols
+   virtualsmartcard/README
+   remote-reader/README
+   ACardEmulator/README
+   pcsc-relay/README
+   ccid/README
+   npa/README
+
+Looking for a feature the included programs do not offer? Want to extend the
+functionality of some library? Apart from requesting a new feature, you can
+have a look at these programming guides and try yourself:
+
+.. toctree::
+   :maxdepth: 1
+
+   virtualsmartcard/api
+   npa/api
+
+.. image:: https://img.shields.io/travis/frankmorgner/vsmartcard/master.svg?label=Travis%20CI%20build
+    :target: https://travis-ci.org/frankmorgner/vsmartcard
+    :alt: Travis CI Build Status Image
+
+.. image:: https://img.shields.io/appveyor/ci/frankmorgner/vsmartcard/master.svg?label=AppVeyor%20build
+    :target: https://ci.appveyor.com/project/frankmorgner/vsmartcard
+    :alt: AppVeyor CI Build Status Image
+
+.. image:: https://img.shields.io/coverity/scan/3987.svg?label=Coverity%20scan
+    :target: https://scan.coverity.com/projects/3987
+    :alt: Coverity Scan Status
 
 
-*******************************************************************************
-Where to get help
-*******************************************************************************
+Download
+--------
 
-Do you have questions, suggestions or contributions? Feedback of any kind is
-more than welcome! You can contact us through our `GitHub
-<https://github.com/frankmorgner/openpace/>`_ `repositories
-<https://github.com/d0/openpace/>`_ or the `project trackers
-<https://github.com/frankmorgner/openpace/issues>`_.
+You can download the latest release of the |vsmartcard| `here
+<https://github.com/frankmorgner/vsmartcard/releases>`_. Older releases are
+still available at the `old project
+location <http://sourceforge.net/projects/vsmartcard/files>`_.
+
+Alternatively, you can clone our git repository::
+
+    git clone https://github.com/frankmorgner/vsmartcard.git
 
 
-.. target-notes::
+References
+----------
 
-.. _`BSI TR-03110`: https://www.bsi.bund.de/EN/Publications/TechnicalGuidelines/TR03110/BSITR03110.html
-.. _`nPA Smart Card Library`: https://frankmorgner.github.io/vsmartcard/
+.. bibliography:: references.bib
+   :all:

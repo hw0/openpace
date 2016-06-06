@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>nPA Smart Card Library &mdash; vsmartcard 2016-06-06 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2016-06-06',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/chip.ico"/>
+    <link rel="top" title="vsmartcard 2016-06-06 documentation" href="../index.html" />
+    <link rel="next" title="Creating a Virtual Smart Card" href="../virtualsmartcard/api.html" />
+    <link rel="prev" title="USB CCID Emulator" href="../ccid/README.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+  
+  <a href="https://github.com/frankmorgner/vsmartcard"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-default ">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          vsmartcard</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../virtualsmartcard/README.html">Virtual Smart Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../remote-reader/README.html">Remote Smart Card Reader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ACardEmulator/README.html">Android Smart Card Emulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcsc-relay/README.html">PC/SC Relay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ccid/README.html">USB CCID Emulator</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">nPA Smart Card Library</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../virtualsmartcard/api.html">Creating a Virtual Smart Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Programming with the nPA Library</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">nPA Smart Card Library</a><ul>
+<li><a class="reference internal" href="#download">Download</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#installation-on-linux-unix-and-similar">Installation on Linux, Unix and similar</a></li>
+<li><a class="reference internal" href="#installation-of-openpace-and-openssl">Installation of OpenPACE and OpenSSL</a></li>
+<li><a class="reference internal" href="#installation-of-opensc">Installation of OpenSC</a></li>
+<li><a class="reference internal" href="#installation-of-the-npa-smart-card-library">Installation of the nPA Smart Card Library</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-the-npa-smart-card-library">Using the nPA Smart Card Library</a><ul>
+<li><a class="reference internal" href="#linking-against-libnpa">Linking against libnpa</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-the-german-identity-card-with-opensc">Using the German identity card with OpenSC</a></li>
+<li><a class="reference internal" href="#question">Question</a></li>
+<li><a class="reference internal" href="#notes-and-references">Notes and References</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="../ccid/README.html" title="Previous Chapter: USB CCID Emulator"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; USB CCID Emulato...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../virtualsmartcard/api.html" title="Next Chapter: Creating a Virtual Smart Card"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Creating a Virtu... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="npa-smart-card-library">
+<span id="libnpa"></span><h1>nPA Smart Card Library<a class="headerlink" href="#npa-smart-card-library" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Summary</p>
+<p>Access the German electronic identity card (neuer Personalausweis/nPA)</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body"><p class="first"><a class="reference external" href="mailto:frankmorgner&#37;&#52;&#48;gmail&#46;com">Frank Morgner</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">License:</th><td class="field-body"><p class="first">GPL version 3</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Tested Platforms:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li>Windows</li>
+<li>Mac OS X</li>
+<li>Linux (Debian, Ubuntu, OpenMoko)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The nPA Smart Card Library offers an easy to use API for the new German identity card
+(neuer Personalausweis, nPA). The library also implements secure messaging,
+which could also be used for other cards. The included <strong class="command">npa-tool</strong> can
+be used for PIN management or to send APDUs inside a secure channel.</p>
+<p>The nPA Smart Card Library is implemented using <a class="reference external" href="https://frankmorgner.github.io/openpace/">OpenPACE</a> <a class="footnote-reference" href="#id2" id="id3">[2]</a> and <a class="reference external" href="https://github.com/OpenSC/OpenSC">OpenSC</a> <a class="footnote-reference" href="#id5" id="id6">[3]</a>. nPA Smart Card Library
+implements and initializes Secure Messaging wrappers of OpenSC to allow a
+transparent SM usage in OpenSC. This allows nPA Smart Card Library to be fully
+compatible with OpenSC.</p>
+<div class="figure">
+<p><img src="../_images/tikz-76b3b9716e39987fa2518d12a8b6c075ba7e2d1a.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
+\node (npa-tool) [aktivbox] {\texttt{npa-tool}};
+\node (libnpa) [box, below=of npa-tool] {\texttt{libnpa}};
+    \node (opensc)
+    [klein, box, shape=rectangle split, rectangle split parts=2, right=of libnpa,
+kleiner, yshift=-1cm]
+    {OpenSC (\texttt{libopensc})
+    \nodepart{second}
+    \footnotesize PC/SC\qquad CT-API
+    };
+    \draw [box] ($(opensc.text split)-(.05cm,0)$) -- ($(opensc.south)-(.05cm,0)$);
+    \node (openpace) [klein, box, left=of libnpa, yshift=-1cm] {OpenPACE};
+
+\begin{pgfonlayer}{background}
+    \path[linie]
+    (npa-tool) edge (libnpa)
+    (libnpa) edge (opensc)
+    (libnpa) edge (openpace);
+\end{pgfonlayer}" /></p>
+<p class="caption">Architecture of the nPA Smart Card Library</p></div><p>The nPA Smart Card Library has the following dependencies:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://frankmorgner.github.io/openpace/">OpenPACE</a> <a class="footnote-reference" href="#id2" id="id4">[2]</a></li>
+<li><a class="reference external" href="https://github.com/OpenSC/OpenSC">OpenSC</a> <a class="footnote-reference" href="#id5" id="id7">[3]</a></li>
+<li><a class="reference external" href="http://www.openssl.org">OpenSSL</a> <a class="footnote-reference" href="#id8" id="id9">[4]</a></li>
+</ul>
+<div class="section" id="download">
+<h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
+<p>You can find the latest release of nPA Smart Card Library on <a class="reference external" href="https://github.com/frankmorgner/vsmartcard/releases">Github</a>. Older releases are
+still available on <a class="reference external" href="http://sourceforge.net/projects/vsmartcard/files">Sourceforge</a>.</p>
+<p>Alternatively, you can clone our git repository:</p>
+<div class="highlight-sh"><div class="highlight"><pre>git clone https://github.com/frankmorgner/vsmartcard.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation-on-linux-unix-and-similar">
+<h3>Installation on Linux, Unix and similar<a class="headerlink" href="#installation-on-linux-unix-and-similar" title="Permalink to this headline">¶</a></h3>
+<p>The nPA Smart Card Library uses the GNU Build System to compile and install. If you are
+unfamiliar with it, please have a look at <code class="file docutils literal"><span class="pre">INSTALL</span></code>. If you can not find
+it, you are probably working bleeding edge in the repository.  Run the
+following command in <code class="file docutils literal"><span class="pre">npa</span></code> to get the missing standard
+auxiliary files:</p>
+<div class="highlight-sh"><div class="highlight"><pre>autoreconf --verbose --install
+</pre></div>
+</div>
+<p>To configure (<strong class="command">configure --help</strong> lists possible options), build and
+install the nPA Smart Card Library now do the following:</p>
+<div class="highlight-sh"><div class="highlight"><pre>./configure
+make
+make install
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation-of-openpace-and-openssl">
+<h3>Installation of OpenPACE and OpenSSL<a class="headerlink" href="#installation-of-openpace-and-openssl" title="Permalink to this headline">¶</a></h3>
+<p>The nPA Smart Card Library links against OpenSSL, which must be patched for OpenPACE.
+Here is an example of how to get the standard installation of OpenPACE (with
+the required binaries for OpenSSL):</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nv">PREFIX</span><span class="o">=</span>/tmp/install
+<span class="nv">OPENPACE</span><span class="o">=</span><span class="nv">$PWD</span>/openpace
+git clone https://github.com/frankmorgner/openpace.git <span class="nv">$OPENPACE</span>
+<span class="nb">cd</span> <span class="nv">$OPENPACE</span>
+autoreconf --verbose --install
+<span class="c"># with `--enable-openssl-install` OpenSSL will be downloaded and installed along with OpenPACE</span>
+./configure --enable-openssl-install --prefix<span class="o">=</span><span class="nv">$PREFIX</span>
+make install <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -
+</pre></div>
+</div>
+<p>The file <code class="file docutils literal"><span class="pre">libcrypto.pc</span></code> should be located in <code class="docutils literal"><span class="pre">$INSTALL/lib/pkgconfig</span></code>.</p>
+</div>
+<div class="section" id="installation-of-opensc">
+<h3>Installation of OpenSC<a class="headerlink" href="#installation-of-opensc" title="Permalink to this headline">¶</a></h3>
+<p>The nPA Smart Card Library needs the OpenSC components to be installed (especially
+<code class="file docutils literal"><span class="pre">libopensc.so</span></code>). Here is an example of how to get a suitable installation
+of OpenSC:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nv">VSMARTCARD</span><span class="o">=</span><span class="nv">$PWD</span>/vsmartcard
+git clone https://github.com/frankmorgner/vsmartcard.git <span class="nv">$VSMARTCARD</span>
+<span class="nb">cd</span> <span class="nv">$VSMARTCARD</span>
+git submodule init
+git submodule update
+<span class="nb">cd</span> <span class="nv">$VSMARTCARD</span>/npa/src/opensc
+autoreconf --verbose --install
+<span class="c"># adding PKG_CONFIG_PATH here lets OpenSC use the patched OpenSSL</span>
+./configure --prefix<span class="o">=</span><span class="nv">$PREFIX</span> <span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="nv">$PREFIX</span>/lib/pkgconfig --enable-sm
+make install <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -
+</pre></div>
+</div>
+<p>Now <code class="file docutils literal"><span class="pre">libopensc.so</span></code> should be located in <code class="docutils literal"><span class="pre">$PREFIX/lib</span></code>.</p>
+</div>
+<div class="section" id="installation-of-the-npa-smart-card-library">
+<h3>Installation of the nPA Smart Card Library<a class="headerlink" href="#installation-of-the-npa-smart-card-library" title="Permalink to this headline">¶</a></h3>
+<p>To complete this step-by-step guide, here is how to install nPA Smart Card Library:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">cd</span> <span class="nv">$VSMARTCARD</span>/npa
+autoreconf --verbose --install
+./configure --prefix<span class="o">=</span><span class="nv">$PREFIX</span> <span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="nv">$PREFIX</span>/lib/pkgconfig <span class="nv">OPENSC_LIBS</span><span class="o">=</span><span class="s2">&quot;-L</span><span class="nv">$PREFIX</span><span class="s2">/lib -lopensc -lcrypto&quot;</span>
+make install <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-the-npa-smart-card-library">
+<span id="npa-usage"></span><h2>Using the nPA Smart Card Library<a class="headerlink" href="#using-the-npa-smart-card-library" title="Permalink to this headline">¶</a></h2>
+<p>The API to libnpa is documented in <a class="reference internal" href="api.html#npa-api"><span>Programming with the nPA Library</span></a>. It includes a simple
+programming example. Here we will focus on the command line interface to the
+library offered by the <strong class="command">npa-tool</strong>. It can perform <abbr title="Extended Access Control">EAC</abbr> (i.e. <abbr title="Password Authenticated Connection Establishment">PACE</abbr>, <abbr title="Terminal Authenticatation">TA</abbr>,
+<abbr title="Chip Authentication">CA</abbr>) and read data groups from the identity card.</p>
+<p>To pass a secret to <strong class="command">npa-tool</strong> for <abbr title="Password Authenticated Connection Establishment">PACE</abbr>, command line parameters or
+environment variables can be used. If the smart card reader supports <abbr title="Password Authenticated Connection Establishment">PACE</abbr>,
+its PIN pad is used. If none of these options apply, <strong class="command">npa-tool</strong> will show a
+password prompt.</p>
+<p>The certificates certificate chain for <abbr title="Terminal Authenticatation">TA</abbr> should be passed in the correct
+order (finishing with the terminal certificate) so that the card can verify it.
+<abbr title="Chip Authentication">CA</abbr> is always done when the terminal&#8217;s signature has been verified
+successfully. The appropriate <abbr title="Country Signing Certificate Authority">CSCA</abbr> certificate will automatically be looked
+up by OpenPACE.</p>
+<p><strong class="command">npa-tool</strong> can send arbitrary APDUs to the nPA in the secure channel (after
+<abbr title="Password Authenticated Connection Establishment">PACE</abbr> or <abbr title="Extended Access Control">EAC</abbr>).  APDUs are entered interactively or through a file.  APDUs
+are formatted in hex (upper or lower case) with an optional colon to separate
+the bytes. Example APDUs can be found in <code class="file docutils literal"><span class="pre">apdus</span></code>.</p>
+<div class="highlight-text"><div class="highlight"><pre>npa-tool 0.15.0
+
+Usage: npa-tool [OPTIONS]...
+
+  -h, --help                    Print help and exit
+  -V, --version                 Print version and exit
+  -r, --reader=INT              Number of the PC/SC reader to use (-1 for
+                                  autodetect)  (default=`-1&#39;)
+  -v, --verbose                 Use (several times) to be more verbose
+
+Password Authenticated Connection Establishment (PACE):
+  -p, --pin[=STRING]            Run PACE with (transport) eID-PIN
+  -u, --puk[=STRING]            Run PACE with PUK
+  -c, --can[=STRING]            Run PACE with CAN
+  -m, --mrz[=STRING]            Run PACE with MRZ (insert MRZ without newlines)
+      --env                     Whether to use environment variables PIN, PUK,
+                                  CAN, MRZ and NEWPIN. You may want to clean
+                                  your environment before enabling this.
+                                  (default=off)
+
+PIN management:
+  -N, --new-pin[=STRING]        Install a new PIN
+  -R, --resume                  Resume eID-PIN (uses CAN to activate last
+                                  retry)  (default=off)
+  -U, --unblock                 Unblock PIN (uses PUK to activate three more
+                                  retries)  (default=off)
+
+Terminal Authentication (TA) and Chip Authentication (CA):
+  -C, --cv-certificate=FILENAME Card Verifiable Certificate to create a
+                                  certificate chain. Can be used multiple times
+                                  (order is important).
+      --cert-desc=HEX_STRING    Certificate description to show for Terminal
+                                  Authentication
+      --chat=HEX_STRING         Card holder authorization template to use
+                                  (default is terminal&#39;s CHAT). Use
+                                  7F4C0E060904007F000703010203530103 to trigger
+                                  EAC on the CAT-C (Komfortleser).
+  -A, --auxiliary-data=HEX_STRING
+                                Terminal&#39;s auxiliary data (default is
+                                  determined by verification of validity, age
+                                  and community ID).
+  -P, --private-key=FILENAME    Terminal&#39;s private key
+      --cvc-dir=DIRECTORY       Where to look for the CVCA&#39;s certificate
+                                  (default=`/home/fm/.local/etc/eac/cvc&#39;)
+      --x509-dir=DIRECTORY      Where to look for the CSCA&#39;s certificate
+                                  (default=`/home/fm/.local/etc/eac/x509&#39;)
+      --disable-ta-checks       Disable checking the validity period of CV
+                                  certifcates  (default=off)
+      --disable-ca-checks       Disable passive authentication  (default=off)
+
+Read and write data groups:
+      --read-dg1                Read DG 1   (Document Type)  (default=off)
+      --read-dg2                Read DG 2   (Issuing State)  (default=off)
+      --read-dg3                Read DG 3   (Date of Expiry)  (default=off)
+      --read-dg4                Read DG 4   (Given Names)  (default=off)
+      --read-dg5                Read DG 5   (Family Names)  (default=off)
+      --read-dg6                Read DG 6   (Religious/Artistic Name)
+                                  (default=off)
+      --read-dg7                Read DG 7   (Academic Title)  (default=off)
+      --read-dg8                Read DG 8   (Date of Birth)  (default=off)
+      --read-dg9                Read DG 9   (Place of Birth)  (default=off)
+      --read-dg10               Read DG 10  (Nationality)  (default=off)
+      --read-dg11               Read DG 11  (Sex)  (default=off)
+      --read-dg12               Read DG 12  (Optional Data)  (default=off)
+      --read-dg13               Read DG 13  (Birth Name)  (default=off)
+      --read-dg14               Read DG 14  (default=off)
+      --read-dg15               Read DG 15  (default=off)
+      --read-dg16               Read DG 16  (default=off)
+      --read-dg17               Read DG 17  (Normal Place of Residence)
+                                  (default=off)
+      --read-dg18               Read DG 18  (Community ID)  (default=off)
+      --read-dg19               Read DG 19  (Residence Permit I)  (default=off)
+      --read-dg20               Read DG 20  (Residence Permit II)
+                                  (default=off)
+      --read-dg21               Read DG 21  (Optional Data)  (default=off)
+      --write-dg17=HEX_STRING   Write DG 17 (Normal Place of Residence)
+      --write-dg18=HEX_STRING   Write DG 18 (Community ID)
+      --write-dg19=HEX_STRING   Write DG 19 (Residence Permit I)
+      --write-dg20=HEX_STRING   Write DG 20 (Residence Permit II)
+      --write-dg21=HEX_STRING   Write DG 21 (Optional Data)
+
+Verification of validity, age and community ID:
+      --verify-validity=YYYYMMDD
+                                Verify chip&#39;s validity with a reference date
+      --older-than=YYYYMMDD     Verify age with a reference date
+      --verify-community=HEX_STRING
+                                Verify community ID with a reference ID
+
+Special options, not always useful:
+  -b, --break                   Brute force PIN, CAN or PUK. Use together with
+                                  -p, -a or -u  (default=off)
+  -t, --translate=FILENAME      File with APDUs of HEX_STRINGs to send through
+                                  the secure channel  (default=`stdin&#39;)
+      --tr-03110v201            Force compliance to BSI TR-03110 version 2.01
+                                  (default=off)
+      --disable-all-checks      Disable all checking of fly-by-data
+                                  (default=off)
+
+Report bugs to opensc-devel@lists.sourceforge.net
+
+Written by Frank Morgner &lt;morgner@informatik.hu-berlin.de&gt;
+</pre></div>
+</div>
+<div class="section" id="linking-against-libnpa">
+<h3>Linking against libnpa<a class="headerlink" href="#linking-against-libnpa" title="Permalink to this headline">¶</a></h3>
+<p>Following the section <a class="reference internal" href="#installation">Installation</a> above, you have installed OpenSSL,
+OpenPACE, OpenSC and the nPA Smart Card Library to <cite>$PREFIX</cite> which points to
+<code class="file docutils literal"><span class="pre">/tmp/install</span></code>. To compile a program using nPA Smart Card Library you also need
+the OpenSC header files, which are located in
+<code class="file docutils literal"><span class="pre">$VSMARTCARD/npa/src/opensc</span></code> Here is how to compile an external program
+with these libraries:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="nv">$PREFIX</span>/lib/pkgconfig
+cc example.c -I<span class="nv">$VSMARTCARD</span>/npa/src/opensc <span class="se">\</span>
+    <span class="k">$(</span>pkg-config --cflags --libs npa<span class="k">)</span>
+</pre></div>
+</div>
+<p>Alternatively you can specify libraries and flags by hand:</p>
+<div class="highlight-sh"><div class="highlight"><pre>cc example.c -I<span class="nv">$VSMARTCARD</span>/npa/src/opensc <span class="se">\</span>
+    -I<span class="nv">$PREFIX</span>/include <span class="se">\</span>
+    -L<span class="nv">$PREFIX</span>/lib -lnpa -lopensc -lcrypto<span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-the-german-identity-card-with-opensc">
+<h2>Using the German identity card with OpenSC<a class="headerlink" href="#using-the-german-identity-card-with-opensc" title="Permalink to this headline">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.6: </span>Added external card driver and PKCS#15 emulator for supporting nPA in
+OpenSC.</p>
+</div>
+<p>To let OpenSC recognize the German ID card we implemented an external card
+driver. We supply a sample <code class="file docutils literal"><span class="pre">opensc.conf</span></code> which adds our driver to all
+components of OpenSC. Load it by setting <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal"><span class="pre">OPENSC_CONF</span></code>:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">export </span><span class="nv">OPENSC_CONF</span><span class="o">=</span><span class="nv">$VSMARTCARD</span>/npa/opensc.conf
+</pre></div>
+</div>
+<p>On Windows you need to use <strong class="command">set</strong> instead of <strong class="command">export</strong>. In
+<code class="file docutils literal"><span class="pre">npa-0.7_win32</span></code> do the following:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">cd </span>bin
+<span class="nb">set </span><span class="nv">OPENSC_CONF</span><span class="o">=</span>..<span class="se">\e</span>tc<span class="se">\o</span>pensc.conf
+</pre></div>
+</div>
+<p>The card driver recognizes the PIN verification method by it&#8217;s ID. MRZ, CAN,
+eID-PIN and PUK are verified using <abbr title="Password Authenticated Connection Establishment">PACE</abbr> (ID <code class="docutils literal"><span class="pre">0x01</span></code>, <code class="docutils literal"><span class="pre">0x02</span></code>, <code class="docutils literal"><span class="pre">0x03</span></code> and
+<code class="docutils literal"><span class="pre">0x04</span></code>). The eSign PIN (ID <code class="docutils literal"><span class="pre">0x83</span></code>) is verified using a standard ISO-7816-4
+VERIFY command. Here, for example, we show how to verify the eID-PIN &#8220;123456&#8221;
+with <strong class="command">opensc-explorer</strong>:</p>
+<div class="highlight-sh"><div class="highlight"><pre>opensc-explorer
+OpenSC <span class="o">[</span>3F00<span class="o">]</span>&gt; verify CHV3 313233343536
+Code correct.
+</pre></div>
+</div>
+<p>When the eID-PIN was verified incorrectly three times, it is blocked and must
+be unblocked with the PUK. But unlike traditional cards the German ID card does
+suspend the eID-PIN after the second try of verification. To unlock the last
+retry, the CAN is required.  Since the suspended state is not captured by
+OpenSC we handle it transparently within the driver. If the eID-PIN shall be
+verified and it is suspended, the card driver will verify the CAN first. If no
+CAN is given in <code class="file docutils literal"><span class="pre">opensc.conf</span></code>, the driver will request it on the standard
+input. You can use <strong class="command">npa-tool</strong> to unblock or resume the eID-PIN.</p>
+<p>The German ID card is capable of creating a qualified electronic signature.
+Therefor, the card must be initialized by a trust center with the user&#8217;s
+consent. Today this means, that the user need to register for <a class="reference external" href="https://www.bundesdruckerei.de/en/798-sign-me">sign-me</a> <a class="footnote-reference" href="#id10" id="id11">[5]</a>. The
+process also initializes the QES-PIN, which unlocks the signature key. An
+intializesed card can be used for electronic signature, with a Comfort Reader
+(KAT-K) <a class="footnote-reference" href="#footnote1" id="id1">[1]</a> that authenticates as signature terminal to the card.
+Below, you can see two examples how to create a signature:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="c"># SHA256_FILE is set to a file of 32 bytes length</span>
+<span class="c"># QES PIN will be prompted by the reader</span>
+pkcs15-crypt --sign --sha-256 --input <span class="nv">$SHA256_FILE</span>
+pkcs11-tool --module opensc-pkcs11.so --sign --input-file <span class="nv">$SHA256_FILE</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="question">
+<h2>Question<a class="headerlink" href="#question" title="Permalink to this headline">¶</a></h2>
+<p>Do you have questions, suggestions or contributions? Feedback of any kind is
+more than welcome! Please use our <a class="reference external" href="https://github.com/frankmorgner/vsmartcard/issues">project trackers</a>.</p>
+</div>
+<div class="section" id="notes-and-references">
+<h2>Notes and References<a class="headerlink" href="#notes-and-references" title="Permalink to this headline">¶</a></h2>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id3">1</a>, <a class="fn-backref" href="#id4">2</a>)</em> <a class="reference external" href="https://frankmorgner.github.io/openpace/">https://frankmorgner.github.io/openpace/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id6">1</a>, <a class="fn-backref" href="#id7">2</a>)</em> <a class="reference external" href="https://github.com/OpenSC/OpenSC">https://github.com/OpenSC/OpenSC</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[4]</a></td><td><a class="reference external" href="http://www.openssl.org">http://www.openssl.org</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id11">[5]</a></td><td><a class="reference external" href="https://www.bundesdruckerei.de/en/798-sign-me">https://www.bundesdruckerei.de/en/798-sign-me</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id12" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id13">[6]</a></td><td><a class="reference external" href="https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TR03119/BSI-TR-03119_V1_pdf.pdf">https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TR03119/BSI-TR-03119_V1_pdf.pdf</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id15">[7]</a></td><td><a class="reference external" href="http://www.reiner-sct.com/produkte/chipkartenleser/cyberJack_RFID_komfort.html">http://www.reiner-sct.com/produkte/chipkartenleser/cyberJack_RFID_komfort.html</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="footnote1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>A Comfort Reader is defined by <a class="reference external" href="https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TR03119/BSI-TR-03119_V1_pdf.pdf">BSI TR-03119</a> <a class="footnote-reference" href="#id12" id="id13">[6]</a>. Today the <a class="reference external" href="http://www.reiner-sct.com/produkte/chipkartenleser/cyberJack_RFID_komfort.html">Reiner SCT cyberJack RFID komfort</a> <a class="footnote-reference" href="#id14" id="id15">[7]</a> is the only reader that supports this configuration.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2009-2016 by Dominik Oepen and Frank Morgner.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
